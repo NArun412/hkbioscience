@@ -1,0 +1,118 @@
+
+  <div class="header" *ngIf="!login">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand me-2">
+          <img src="../../assets/Images/logo.png" alt="Logo" />
+        </a>
+    
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarButtonsExample"
+          aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarButtonsExample" #navbarCollapse>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-items menu-font">
+            <li class="nav-item"><a routerLink="/Dashboard" routerLinkActive="active" (click)="routerchange()">Home</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/Product" (click)="routerchange()">Products</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/Plan" (click)="routerchange()">Plan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" (click)="routerchange()">Consulting</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/HKBBlog" routerLinkActive="active" (click)="routerchange()">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/Contact" (click)="routerchange()">Contact</a></li>
+            <li class="nav-item">
+           <div style="margin-left:18px;"><button class="btn btn-warning btnGet" routerLink="/Plan" style="margin-top:6px;">GET STARTED</button></div>
+            </li>
+            <li *ngIf="!isUserLoggedIn" class="nav-item pr-5"><a class="nav-link" href="#" routerLink="/Login">Login</a></li>
+          </ul>
+    
+          <div class="profile-dropdown" ngbDropdown *ngIf="isUserLoggedIn">
+            <div class="profile-info d-flex align-items-center" ngbDropdownToggle>
+              <div class="me-2">
+                <h6 class="mb-0">{{Username}}</h6>             
+              </div>
+              <img src="../../assets/Images/user.png" alt="Profile Image" class="profile-image rounded-circle" >
+            </div>
+    
+            <div ngbDropdownMenu class="mt-2 menu-log">             
+              <button class="dropdown-item d-flex align-items-center" (click)="logout_user()">
+                <i class="bi bi-power me-2"></i> Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>    
+  </div>
+
+  <div class="content" >
+   
+    <router-outlet></router-outlet>
+    <app-modal-spinner></app-modal-spinner>
+  </div>
+  <div class="chat-bot-container">
+    <app-chat-bot-popup></app-chat-bot-popup>
+  </div>
+
+  <div> <button class="dotsbtn" (click)="openChatbot()" style="color: white;">
+    <i class="fa-brands fa-rocketchat"></i>
+  </button> </div>
+
+  <div class="footer Regular-font" *ngIf="!login">
+    <div class="section-8 container-fluid border-0 border-top mt-5 ">
+
+      <div class="row p-4 mt-4">
+        <div class="col-lg-4 col-md-12  col-sm-12 mb-4 mb-md-0 footertext" style="padding-top: 25px;">
+          <h4  style="font-weight: 800;">HK Bioscience</h4>
+          <p style="padding-top: 20px;" class="Regular-font">Expert design and implementation of <br>cleanroom facilities and related products</p>
+        </div>
+        <div class="col-lg-2 col-md-5  col-sm-5 mb-4 mb-md-0 footerlinks">
+          <ul class="list-unstyled mb-0 footer-font">
+            <li>
+              <a href="#" class="text-dark d-block py-4 text-decoration-none">Links</a>
+            </li>
+            <li>
+              <a href="#" routerLink="/Dashboard"  class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Home</a>
+            </li>
+            <li >
+              <a href="#" routerLink="/Product" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Products</a>
+            </li>
+            <li>
+              <a href="#" routerLink="/Plan" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Plan</a>
+            </li>
+            <li>
+              <a href="#" routerLink="/Contact" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-5 col-sm-5 mb-5 mb-md-0 footerlinks">
+          <ul class="list-unstyled mb-0 footer-font">
+            <li>
+              <a href="#" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Help</a>
+            </li>
+            <li>
+              <a href="#" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Start Here</a>
+            </li>
+            <li>
+              <a href="#" routerLink="/HKBBlog"  class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">Blog</a>
+            </li>
+            <li>
+              <a href="#" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">About</a>
+            </li>
+            <li>
+              <a href="#" class="text-dark d-block py-4 text-decoration-none" (click)="routerchange()">FAQs</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12  col-sm-12 mb-5 mb-md-0" style="padding-top: 25px;">
+          <h6 style="font-weight: 700;">Newsletter</h6>
+          <input type="form-control" placeholder="Enter Your Email Address"
+            class="email-input border-0 border-bottom border-dark mt-5">
+          <a href="#" class="text-dark py-3 d-inline-block me-2 link mt-3" style="margin-left: 20px;font-size: 16px;font-weight: 500;">SUBSCRIBE</a>
+        </div>
+      </div>
+    </div>
+    <hr class="new4">
+    <div class="section-9 Copyrights">
+      <p>{{CurrentYear}} HKB All rights reserved</p>
+    </div>
+  </div>

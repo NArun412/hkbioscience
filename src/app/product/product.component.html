@@ -1,0 +1,31 @@
+<div class="section-1">
+<div  style="margin: 10px;" *ngIf="isUserLoggedIn">
+  <button class="submit-but" style="float: right;"  routerLink="/AddProduct">
+    <i class="fa-solid fa-square-plus"></i> <b>ADD</b>
+  </button>
+ </div>
+</div>
+<div class="section-4">
+ 
+ 
+ <span><h1>Our Products</h1></span>
+
+    <div class="section-body">
+ 
+      <div *ngFor="let post of Firstproductshow" class="section-col" style="cursor: pointer;" (click)="RedirectProduct(post.uploadId)" >
+
+        <div class="image-box">
+          <img [src]="post.filePath">
+        </div>
+        <div class="section-content">
+          <h4>{{post.productName}}</h4>
+          <p>{{post.subTitle}}</p>
+          <a  class="link">Learn More</a>
+        </div>
+
+    </div>
+    </div>
+    <div class="text-center py-3">
+      <button class="btn btn-outline-secondary pt-2 pb-2 rounded-0 showButton" (click)="showmore()">Show More</button>
+    </div>
+  </div>

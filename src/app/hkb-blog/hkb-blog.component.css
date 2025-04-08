@@ -1,0 +1,699 @@
+.topimage-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  left: 11px;
+}
+
+.blog-post-container {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 20px;
+  border-radius: 10px;
+  
+}
+
+/* On hover, change background color and apply a subtle transform */
+.blog-post-container:hover {
+  background-color: #e3e3e7; /* Light blue color on hover */
+  transform: scale(1.02); /* Slight zoom-in effect */
+}
+
+
+.blog-topimage {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Base styles for both text and image overlays */
+.overlay {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  padding: 0 2vw;
+  width: 80%;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+/* Specific styles for the image overlay */
+.image-overlay {
+  top: 35%;
+}
+
+/* Specific styles for the text overlay */
+.text-overlay {
+  top: 50%;
+  color: #f0f0f0;
+}
+.breadtxt-overlay {
+  top: 70%;
+  color: #111111;
+  font-family: 'Poppins-Bold', sans-serif;
+  font-size: 20px;
+}
+.breadtxt-overlay p {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Poppins-Bold', sans-serif;
+}
+.breadtxt-overlay p a {
+  cursor: pointer;
+  font-size: 20px;
+  color: #111111;
+  font-family: 'Poppins-Bold', sans-serif;
+  text-decoration: none;
+}
+.breadtxt-overlay p a:hover {
+  color: #ed4d1a;
+}
+
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .image-overlay {
+    top: 40%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-overlay {
+    top: 20%;
+    width: 60%;
+    padding: 0 1vw;
+  }
+
+  .text-overlay {
+    width: 85%;
+    padding: 0 4vw;
+  }
+
+  .text-overlay h4 {
+    font-size: 46px;
+  }
+  .breadtxt-overlay p {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  .breadtxt-overlay p a {
+    font-size: 10px;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .image-overlay {
+    top: 25%;
+    width: 80%;
+    padding: 0 5vw;
+  }
+
+  .text-overlay {
+    width: 90%;
+    padding: 0 6vw;
+  }
+
+  .text-overlay h4 {
+    font-size: 7vw;
+  }
+  .breadtxt-overlay {
+    width: 90%;
+    padding: 0 6vw;
+  }
+
+}
+
+/* Text-specific styling */
+.text-overlay h4 {
+  margin: 0;
+  font-size: 3vw;
+  padding-top: 15px;
+}
+
+
+
+
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .responsive-image {
+      max-width: 100%;
+      height: 130px;
+      display: block;
+    }
+  }
+
+  .container {
+    padding: 20px;
+    padding-top: 75px;
+  }
+
+  /* Mobile view adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px; /* Adjust the padding for mobile */
+    padding-top: 20px; /* Adjust the top padding for mobile */
+  }
+}
+  .blog-image {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Ensure it scales with the container */
+    max-width: 100%; /* Prevent overflow */
+  }
+  
+  .blog-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .watermark {
+    position: absolute;
+    bottom: 2%; /* Adjust for responsiveness */
+    right: 2%; /* Adjust for responsiveness */
+    width: 10%; /* Adjust the size of the watermark image */
+    height: auto; /* Maintain aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .watermark img {
+    width: 100%; /* Ensure the watermark image fills its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Media queries for finer control */
+  @media (max-width: 768px) {
+    .watermark {
+      width: 15%; /* Adjust size for smaller screens */
+      bottom: 3%; /* Adjust positioning */
+      right: 3%; /* Adjust positioning */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .watermark {
+      width: 20%; /* Adjust size for very small screens */
+      bottom: 4%; /* Adjust positioning */
+      right: 4%; /* Adjust positioning */
+    }
+  }
+  
+  .blog-info {
+    margin-top: 20px;
+  }
+  .Blog-tc h1 :hover{
+    color:  #ed4d1a;
+    cursor: pointer;
+    text-align: justify;
+    position: relative;
+  }
+  .Blog-tc p {
+    position: relative;
+    font-size: 18px;
+    text-align: justify;
+    font-family: 'Poppins-Regular';
+  }
+  
+  .Blog-tc a {
+    font-size: 18px;
+    color: #ed4d1a;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Poppins-Bold', sans-serif;
+  }
+  
+  .Blog-tc a:hover {
+    text-decoration: none;
+  }
+  
+  .blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Add bullets before all spans except the first one */
+  .blog-meta span::before {
+    margin-right: 5px;
+  }
+  
+  /* Remove bullet from the first span */
+  .blog-meta span:first-child::before {
+    margin-right: 0;
+  }
+  
+  /* For small screens (mobile) */
+  @media (max-width: 768px) {
+    .blog-meta {
+      flex-direction: column;
+      gap: 5px; /* Reduce gap between elements */
+      font-size: 12px; /* Smaller font size for mobile */
+    }
+  
+    .blog-meta span::before {
+      margin-right: 3px; /* Reduce bullet margin */
+    }
+  }
+  
+  /* For medium screens (tablets) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .blog-meta {
+      flex-direction: row;
+      gap: 8px; /* Slightly smaller gap */
+      font-size: 13px; /* Slightly smaller font size */
+    }
+  }
+  
+  
+  h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins-Bold', sans-serif;
+    cursor: pointer;
+
+  }
+  h1 :hover{
+    color:  #ed4d1a;
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    padding-left: 20px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .categories h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .categories ul {
+    list-style: none;
+    padding: 0;
+    
+  }
+  
+  .categories ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    padding-top: 30px;
+    cursor: pointer;
+    
+  }
+  .categories ul li:hover{
+    color:  #ed4d1a;
+  }
+  
+  .categories ul li span {
+    color: red;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../../assets/font/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../../assets/font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../../assets/font/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  p {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+  }
+.Regular-font {
+    font-family: 'Poppins-Regular', sans-serif;
+  }
+  .Blod-font {
+    font-family: 'Poppins-Bold', sans-serif;
+  }
+
+  .footer-font {
+    font-family: 'Poppins-SemiBold', sans-serif;
+  }
+
+
+  
+  .recent-posts {
+    padding: 20px;
+    margin-top: -78px;
+  }
+  
+  .recent-posts h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 15%;
+
+  }
+
+  .post-image {
+    /* Center the image container */
+    text-align: center;
+    position: relative; /* Allows positioning of dropdown relative to this container */
+    width: 90px;
+    height: 90px;
+    box-sizing: border-box;
+  }
+  
+  .small-img {
+    max-width: 150px; /* Limit the width of the image */
+    max-height: 150px; /* Limit the height of the image */
+    object-fit: contain; /* Preserve aspect ratio without clipping */
+    width: 100%; /* Make it responsive */
+    height: auto; /* Ensure it maintains the aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
+  
+  .post-image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .post-info h4 {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding-left: 5px;
+    text-align: justify;
+    
+  }
+  .post-info:hover
+  {
+    color:  #ed4d1a;;
+    cursor: pointer;
+  }
+  
+  .post-info p {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+    padding-left: 5px;
+    
+  }
+ 
+
+  .Regular-font {
+    font-family: 'Poppins-Regular', sans-serif;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 768px) {
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+  
+  }
+
+
+  @media (max-width: 480px) {
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+  
+  }
+  
+  .pagination-container button {
+    background-color: #f0f4ff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination-container button.active {
+    background-color: #444;
+    color: white;
+  }
+  
+  .pagination-container button:hover:not(.active) {
+    background-color: #d8e2f8;
+  }
+  
+  .pagination-container button:disabled {
+    background-color: #f0f4ff;
+    cursor: not-allowed;
+    color: #ccc;
+  }
+  .features-container {
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #c9c6c6;
+    width: 100%;
+    font-family: 'Poppins-Bold', sans-serif;
+  }
+    
+  .feature-item {
+    text-align: center;
+    flex: 1 1 200px;
+    margin: 10px;
+    padding: 20px;
+    /* border: 1px solid #e0e0e0; */
+    border-radius: 8px;
+    /* background-color: #ffffff; */
+  }
+   
+  .feature-item i {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+   
+  .feature-item h3 {
+    font-size: 20px;
+    /* margin: 10px 0; */
+  }
+   
+  .feature-item p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .icon-class-size
+  {
+    height: 100px;
+  }
+  /* Dropdown List Styles */
+.dropdown-list {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 350px; /* Max width for larger screens */
+  max-height: 400px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding/border are included in width/height */
+}
+
+.dropdown-container {
+  padding-top: 10px;
+  position: relative; /* Allows positioning of dropdown relative to this container */
+  max-width: 100%; /* Ensure container does not exceed the screen width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.dropdown-list::-webkit-scrollbar {
+  width: 8px; /* Width of scrollbar */
+}
+
+.dropdown-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounding of scrollbar thumb */
+}
+
+.dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+.dropdown-list li {
+  padding: 8px 10px; /* Padding for list items */
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Black shadow */
+  box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+.dropdown-list li:hover {
+  background-color: #f0f0f0;
+  color: #ed4d1a;
+}
+
+.dropdown-list h4 {
+  margin: 0;
+  font-size: 14px; /* Font size for headings */
+}
+
+.dropdown-list p {
+  margin: 5px 0 0;
+  font-size: 12px; /* Font size for paragraphs */
+  color: gray;
+}
+
+/* Media Queries for additional responsiveness */
+@media (max-width: 768px) {
+  .dropdown-list {
+    max-width: 100%; /* Ensure dropdown doesn't exceed screen width */
+  }
+
+  .dropdown-list li {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .dropdown-list h4 {
+    font-size: 13px; /* Adjust font size for smaller screens */
+  }
+
+  .dropdown-list p {
+    font-size: 11px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-list {
+    max-height: 400px; /* Adjust max-height if needed for smaller screens */
+  }
+}
+
+/* Drop Meta Styles */
+.drop-meta {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
+  gap: 10px; /* Space between items */
+  font-size: 14px; /* Base font size */
+  margin: 10px 0; /* Margin around the element */
+  box-sizing: border-box; /* Ensure padding/border are included in width/height */
+}
+
+.drop-meta span {
+  flex: 1 1 auto; /* Allows items to grow and shrink */
+  min-width: 100px; /* Minimum width for each item */
+  word-break: break-word; /* Break long words to avoid overflow */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+  .drop-meta {
+    font-size: 12px; /* Smaller font size on smaller screens */
+  }
+  .drop-meta span {
+    min-width: 70px; /* Adjust minimum width for smaller screens */
+  }
+}
+
+  
+  
+
+  .no-match {
+  text-align: center;
+  color: red;
+}
+
+
+.recent-posts:hover {
+  cursor: pointer;
+ 
+}
+
+.submit-but {
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Vertically center icon and text */
+  justify-content: center; /* Horizontally center icon and text */
+  gap: 8px; /* Space between icon and text */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #ed4d1a;
+  font-family: 'Poppins-Bold', sans-serif;
+  color: #fff;
+  width: 110px; /* Adjusted width to fit text and icon */
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase; /* Makes the text uppercase */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect for a modern touch */
+.submit-but:hover {
+  background: linear-gradient(45deg, #ff4500, #ed4d1a); /* Gradient changes on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow becomes more pronounced */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.submit-but:active {
+  transform: translateY(0); /* Reset the lift on click */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Return to original shadow */
+}
+
+

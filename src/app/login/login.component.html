@@ -1,0 +1,180 @@
+<section class="vh-100"  style="background-image: url('../../assets/Images/login-bg.jpg');">
+  <a class="custom-button" routerLink="/Dashboard">
+    <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home
+  </a>
+  <div class="container py-5 h-100" *ngIf="EnableLogin">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-1 d-flex align-items-center"></div>
+            <div class="col-md-12 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+  
+                <form [formGroup]="Login_Form">
+  
+                  <!-- Logo Section -->
+                  <div class="text-center mb-3">
+                    <img src="../../assets/Images/full_logo.svg" alt="BootstrapBrain Logo" width="139" height="66">
+                  </div>
+  
+                  <!-- Heading -->
+                  <h4 class="fw-normal mb-3 pb-3 text-center">Login to Your Account</h4>
+  
+                  <!-- Email Input -->
+                  <div class="form-outline mb-4" [ngClass]="{ 'is-invalid': submitted && (Login_Form_Value.Email_Address.errors || Login_Form.get('Email_Address').hasError('Validemail')) || email_id_EmailError }">
+                    <input type="text" placeholder="Email address" 
+                      class="form-control form-control-lg" autocomplete="off"
+                      formControlName="Email_Address"
+                      (keydown.space)="$event.preventDefault()"
+                      (keyup)="email_id_EmailError=false" maxlength="254"
+                      [ngClass]="{ 'is-invalid':submitted && (Login_Form_Value.Email_Address.errors || Login_Form.get('Email_Address').hasError('Validemail')) || email_id_EmailError }"/>
+                    <div *ngIf="submitted && (Login_Form_Value.Email_Address.errors || Login_Form.get('Email_Address').hasError('Validemail')) || email_id_EmailError" class="text-danger">
+                      <p *ngIf="Login_Form_Value.Email_Address.errors.required" class="mb-0 text-danger">Enter Email Address</p>
+                      <p *ngIf="Login_Form_Value.Email_Address.errors.pattern || Login_Form.get('Email_Address').hasError('Validemail')" class="mb-0 text-danger">Enter valid email address</p>
+                    </div>
+                  </div>
+  
+                  <!-- Password Input -->
+                  <div class="password-container form-outline mb-4" [ngClass]="{ 'is-invalid': submitted && Login_Form_Value.Password.errors }">
+                    <input [type]="showPassword ? 'text' : 'password'"
+                      formControlName="Password"
+                      [ngClass]="{ 'is-invalid':submitted && Login_Form_Value.Password.errors }"
+                      maxlength="40"
+                      placeholder="Password" class="form-control form-control-lg" />
+                    
+                    <fa-icon 
+                      [icon]="showPassword ? 'eye-slash' : 'eye'" 
+                      (click)="togglePasswordVisibility()" 
+                      class="eye-icon" *ngIf="Login_Form.get('Password')?.value">
+                    </fa-icon>
+                    <div *ngIf="submitted && Login_Form_Value.Password.errors" class="mb-0 text-danger">
+                      <p class="mb-0 text-danger">Enter Password</p>
+                    </div>
+                  </div>
+  
+                  <!-- Login Button -->
+                  <div class="pt-1 mb-4 d-grid">
+                    <button data-mdb-button-init data-mdb-ripple-init (click)="login_clicked()" class="btn btn-lg btn-block btnGet" type="button">Login</button>
+                  </div>
+  
+                  <!-- Forgot Password Link -->
+                  <div class="col-12">
+                    <div class="d-flex gap-2 justify-content-center">
+                      <a href="#!" style="text-decoration: none;" (click)="OnBtnClick('Forgot')">Forgot password?</a>
+                    </div>
+                  </div>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="container py-5 h-100" *ngIf="EnableForgot">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-5">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+                <div class="col-md-6 col-lg-1 d-flex align-items-center">
+                   
+                  </div>
+              <div class="col-md-6 col-lg-10 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <div class="text-center mb-3">
+                    <a href="#!">
+                      <img src="../../assets/Images/full_logo.svg" alt="BootstrapBrain Logo" width="139" height="66">
+    
+                    </a>
+                  </div>
+                  <h4 class="log-title bold text-center">Forgot Password</h4>
+                <h6 class="_500 mb-15 text-center">Provide the email address associated with your account to recover your password.</h6>
+
+                  <form [formGroup]="Forgot_Password" >
+                    <div class="row gy-2 overflow-hidden">
+                      <div class="col-12">
+                        <div [ngClass]="{ 'is-invalid': forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail'))}">
+                          <input type="text" placeholder="Email address" 
+                           class="form-control form-control-lg"
+                           (keydown.space)="$event.preventDefault()"  formControlName="User_Email" maxlength="250" 
+                           [ngClass]="{ 'is-invalid': forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail')) }" />
+                        </div>
+                        <div *ngIf="forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail')) " class="text-danger">
+                          <p *ngIf="Forgot_Password_Value.User_Email.errors.required" class="mb-0 text-danger">Email Address required</p>
+                          <p *ngIf="Forgot_Password_Value.User_Email.errors.pattern || Forgot_Password.get('User_Email').hasError('Validemail')" class="mb-0 text-danger">Enter valid Email Address</p>
+                      </div>                                                
+                      
+                      </div>
+                      <div class="col-12">
+                        <div class="d-grid my-3">
+                          <button class="btn btn-lg btnGet" (click)="send_reset_link()" type="submit">Send Reset Link</button>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="d-flex gap-2 justify-content-center">
+                          <a href="#!" style="text-decoration: none;" (click)="OnBtnClick('Login')">Back to Login</a>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="container py-5 h-100"  *ngIf="EnableForgot">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+          <div class="card border border-light-subtle  shadow-sm" style="border-radius: 1rem;">
+            <div class="card-body p-3 p-md-4 p-xl-5">
+              <div class="text-center mb-3">
+                <a href="#!">
+                  <img src="../../assets/Images/full_logo.svg" alt="BootstrapBrain Logo" width="139" height="66">
+
+                </a>
+              </div>
+              <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Provide the email address associated with your account to recover your password.</h2>
+              <form [formGroup]="Forgot_Password" >
+                <div class="row gy-2 overflow-hidden">
+                  <div class="col-12">
+                    <div [ngClass]="{ 'is-invalid': forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail'))}">
+                      <input type="text" placeholder="Email address" 
+                       class="form-control form-control-lg"
+                       (keydown.space)="$event.preventDefault()"  formControlName="User_Email" maxlength="250" 
+                       [ngClass]="{ 'is-invalid': forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail')) }" />
+                    </div>
+                    <div *ngIf="forgot_submitted && (Forgot_Password_Value.User_Email.errors ||Forgot_Password.get('User_Email').hasError('Validemail')) " class="text-danger">
+                      <p *ngIf="Forgot_Password_Value.User_Email.errors.required" class="mb-0 text-danger">Email Address required</p>
+                      <p *ngIf="Forgot_Password_Value.User_Email.errors.pattern || Forgot_Password.get('User_Email').hasError('Validemail')" class="mb-0 text-danger">Enter valid Email Address</p>
+                  </div>                                                
+                  
+                  </div>
+                  <div class="col-12">
+                    <div class="d-grid my-3">
+                      <button class="btn btn-lg btnGet" (click)="send_reset_link()" type="submit">Send Reset Link</button>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-flex gap-2 justify-content-center">
+                      <a href="#!" style="text-decoration: none;" (click)="OnBtnClick('Login')">Back to Login</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </section>
+

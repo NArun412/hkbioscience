@@ -1,0 +1,81 @@
+
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../../assets/font/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../../assets/font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../../assets/font/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .header-row {
+    background-color: #343a40;
+    color: white;
+    padding: 5px 0;
+    font-size: 18px;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+input,textarea,button,label,p{
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 12px;
+}
+
+.odd-rows {
+    background-color: #f8f9fa;
+    padding: 5px 0;
+    border: solid  0.5px;
+    border-color: rgb(194, 194, 194);
+
+}
+
+.even-rows {
+    background-color: #e9ecef;
+    padding: 5px 0;
+    border-color: rgb(194, 194, 194);
+    border: solid 0.5px;
+}
+
+.row {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .row div {
+        font-size: 12px;
+        font-family: 'Poppins-Regular', sans-serif;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination-controls {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+    
+    .pagination-controls button {
+        width: 100%; /* Full width for buttons on small screens */
+    }
+}
+
+/* Responsive font size using clamp */
+.responsive-heading {
+    font-size: clamp(1rem, 2.5vw + 1rem, 2rem); /* Minimum, preferred, maximum size */
+    margin: 1rem 0; /* Adjust margin as needed */
+}
+  

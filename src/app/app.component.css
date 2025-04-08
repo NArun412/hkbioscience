@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../assets/font/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../assets/font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../assets/font/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .Regular-font {
+    font-family: 'Poppins-Regular', sans-serif;
+  }
+
+  .menu-font {
+    font-family: 'Poppins-Bold', sans-serif;
+  }
+
+  .footer-font {
+    font-family: 'Poppins-SemiBold', sans-serif;
+  }
+
+  .menu-items .nav-item{
+    margin-right: 50px;
+  }
+
+  hr.new4 {
+    border: 2px solid black;
+    margin: 0px 50px;
+  }
+
+  .container {
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scrolling */
+  }
+
+  .header {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Background color */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: shadow for better visibility */
+    z-index: 1000; /* Ensure it is on top of other content */
+  }
+
+  .btnGet{
+    background: #ed4d1a;
+    font-family: 'Poppins-Bold', sans-serif;
+    color: #fff;
+    font-size: 12px;
+    width: 130px;
+  }
+
+  @media (max-width: 576px) {
+  nav  .container-fluid{
+    padding: 0px;
+  }
+}
+
+
+.navButton{
+  display: flex;
+  justify-content: center;
+  /* margin-right: 50px; */
+}
+
+.navButton button{
+  font-weight: 700;
+  transition: .2s;
+  background: #ed4d1a;
+  color: #fff;
+  border-radius: 5px;
+  /* padding: 10px 25px; */
+  border: none;
+}
+
+.navbar-brand img {
+  width: 100%;
+  height: auto;
+}
+.hover-link:hover {
+  color: #ed4d1a; /* Change to your desired hover color */
+}
+
+
+.menu-items {
+  margin: 0px;
+  padding: 0;
+  padding-right: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.menu-items .nav-item{
+  margin-right: 15px;
+}
+
+.menu-items li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color:#484645;
+  font-weight: 700;
+  transition: .2s;
+
+}
+.menu-items li a:hover{
+  color: #ed4d1a;
+
+}
+
+
+.header1 , h1{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold !important;
+  font-size: 52px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header2 , h2{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header3 , h3{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header4 , h4{
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-weight: SemiBold;
+  font-size: 24px;
+  text-decoration: none;
+  line-height: 150%;
+ }
+
+ .header5 , h5{
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-weight: SemiBold;
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 150%;
+ }
+
+ .BodyText{
+  font-family: 'Poppins-Regular', sans-serif;
+  font-weight: SemiBold;
+  font-size: 16px;
+  text-decoration: none;
+ }
+
+ .MainButtonText{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: Bold;
+  font-size: 16px;
+  text-decoration: none;
+ }
+
+ .Copyrights{
+  padding-left: 50px;
+  padding-top: 25px;
+ }
+
+ .profile-dropdown {
+  cursor: pointer;
+}
+
+.profile-info {
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-info h6 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile-info small {
+  color: gray;
+}
+
+.ngbDropdownMenu {
+  min-width: 150px;
+}
+
+.dropdown-item {
+  font-size: 14px;
+}
+
+.dropdown-item i {
+  font-size: 18px;
+}
+
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dotsbtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f06220;
+  border: none;
+  border-radius: 50%;
+  width: 60px; /* Default width */
+  height: 60px; /* Default height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Default z-index */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for transform and shadow */
+  box-shadow: 0 0 15px rgba(240, 98, 32, 0.7); /* Initial glow effect */
+  animation: glowing 1.5s infinite alternate; /* Add the glowing animation */
+}
+
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 15px rgba(240, 98, 32, 0.7);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(240, 98, 32, 1); /* Stronger glow */
+  }
+}
+
+.dotsbtn i {
+  font-size: 24px; /* Default icon size */
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+  .dotsbtn {
+    width: 50px; /* Adjusted width for mobile */
+    height: 50px; /* Adjusted height for mobile */
+    z-index: 1000; /* Ensure z-index is included for mobile */
+  }
+
+  .dotsbtn i {
+    font-size: 20px; /* Adjusted icon size for mobile */
+  }
+}
+
+/* Active state for the button */
+.dotsbtn:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+
+
+.chat-bot-container {
+  position: fixed; /* Keeps it fixed on the screen */
+  bottom: 0px; /* Distance from the bottom of the screen */
+  right: 120px; /* Distance from the right of the screen */
+  width: 300px; /* Fixed width, you can adjust as needed */
+  max-width: 90%; /* Ensures it doesn't exceed 90% of the viewport width */
+  height: auto; /* Allows the height to adjust based on content */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+  z-index: 800; /* Keeps it on top of other elements */
+  transition: all 0.3s ease; /* Smooth transition for any changes */
+  cursor: move; /* Indicates that the element is draggable */
+}
+
+@media (max-width: 500px) {
+  .chat-bot-container {
+    width: 100%; /* Full width on smaller screens */
+    bottom: 20px; /* Adjusted bottom spacing */
+    right: 20px; /* Adjusted right spacing */
+  }
+
+  .profile-info {
+    cursor: pointer;
+    padding-left: 21px;
+  }
+
+  .menu-log{
+    top: 100% !important;
+    margin-left: 30px !important;
+  }
+
+}
+
+
+
+@media (max-width: 768px) {
+  .profile-info {
+    cursor: pointer;
+    padding-left: 21px;
+  }
+
+  .menu-log{
+    top: 100% !important;
+    margin-left: 30px !important;
+  }
+
+}
+
+.menu-log{
+  top: 100% !important;
+  left: -40px !important;
+}
+
+

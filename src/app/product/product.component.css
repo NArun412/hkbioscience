@@ -1,0 +1,115 @@
+/* Section 4 styles */
+
+.section-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+}
+.section-4 h1{
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+}
+
+.showButton {
+  padding: 0px 65px;
+  color: #000;
+  font-family: 'Poppins-SemiBold', sans-serif !important;
+  border: 2px solid #000;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem; /* Font size for tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1rem; /* Font size for mobile screens */
+  }
+}
+
+.section-4 .section-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;
+  }
+  
+  .section-4 .section-body .section-col {
+    width: 300px;
+    background: #F6F5EF;
+    border-radius: 10px;
+  }
+  
+  .section-4 .section-body .section-col .image-box {
+    position: relative;
+    height: 300px;
+  }
+  
+  .section-4 .section-body .section-col .image-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .section-4 .section-body .section-col .section-content {
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+  
+  .section-4 .section-body .section-col .section-content p {
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: 'Poppins-Regular', sans-serif !important;
+  }
+  
+  .section-4 .section-body .section-col .section-content h4 {
+    font-weight: 700;
+    padding-top: 5px;
+  }
+  
+  .section-4 .section-body .section-col .section-content a {
+    color: #ed4d1a;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Poppins-Regular', sans-serif !important;
+  }
+
+  .submit-but {
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically center icon and text */
+    justify-content: center; /* Horizontally center icon and text */
+    gap: 8px; /* Space between icon and text */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ed4d1a;
+    font-family: 'Poppins-Bold', sans-serif;
+    color: #fff;
+    width: 110px; /* Adjusted width to fit text and icon */
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase; /* Makes the text uppercase */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+  }
+  
+  /* Hover effect for a modern touch */
+  .submit-but:hover {
+    background: linear-gradient(45deg, #ff4500, #ed4d1a); /* Gradient changes on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow becomes more pronounced */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .submit-but:active {
+    transform: translateY(0); /* Reset the lift on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Return to original shadow */
+  }

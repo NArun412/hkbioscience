@@ -1,0 +1,224 @@
+<div class="row topimage-container" style="margin-right: 0;" #pageElement>
+  <img src="../../assets/Images/HKB-Blog.png" alt="Blog topimage"  class="responsive-image" style="padding-left: 0px !important; padding-right: 0px !important;">
+ <div class="image-overlay overlay">
+  <img src="../../assets/Images/Group 48 1.svg" alt="blog-headImage">
+</div>
+<div class="text-overlay overlay">
+  <h4>Blog</h4>
+</div>
+<div class="breadtxt-overlay overlay">
+  <p><a [routerLink]="routerUrl">{{ routerName }}</a> > Blog</p>
+</div>
+</div> 
+
+<div class="container Regular-font" #targetElement >
+  <div class="row" >
+    <div style="padding-bottom: 15px;" *ngIf="isUserLoggedIn">
+      <button class="submit-but" style="float: right;" routerLink="/BlogPost">
+        <i class="fa-solid fa-square-plus"></i> <b>ADD</b>
+      </button>
+     </div>
+  </div>
+
+  <div class="row" >
+    
+    <div class="col-lg-8">
+      <div *ngFor="let post of paginatedPosts" style="padding-bottom: 80px;" class="blog-post-container">
+        <!-- Blog Image -->
+        <div class="blog-image">
+          <img [src]="post.filePath" alt="Blog Image">
+          <div class="watermark">
+            <img src="../../assets/Images/watermark.svg" alt="Watermark Image">
+          </div>
+        </div>
+    
+        <!-- Blog Info -->
+        <div class="blog-info">
+          <div class="blog-meta">
+           <span><i class="fa-solid fa-id-badge"></i>&nbsp;{{ post.authorname }}</span>
+            <span><i class="fa-solid fa-calendar-days"></i>&nbsp;{{ post.effectiveDateTime | date:'dd-MMM-yyyy' }}</span>
+            <span><i class="fa-solid fa-layer-group"></i>&nbsp;{{ post.categoryName }}</span>
+          </div>
+        </div>
+    
+        <!-- Blog Title and Content -->
+        <div class="Blog-tc">
+          <h1>{{ post.caption }}</h1>
+          <p [innerHTML]="getDescription(post)" class="description"></p>
+<a href="#" *ngIf="post.description.length > 500" (click)="toggleReadMore(post.uploadId, $event)">
+  {{ showFull[post.uploadId] ? 'Read Less' : 'Read More' }}
+</a>
+
+          
+        </div>
+      </div>
+    
+
+      <div class="pagination-container" *ngIf="paginatedPosts.length > 0">
+        <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+        
+        <button *ngFor="let page of getPagesToDisplay()"
+                (click)="selectPage(page)"
+                [class.active]="currentPage === page">
+          {{ page }}
+        </button>
+        
+        <button (click)="goToNextPage()" [disabled]="currentPage >= totalPages">Next</button>
+      </div>
+  
+    
+    </div>
+    
+
+    <div class="col-lg-4">
+      <div class="sidebar" style="padding-top: 10px;">
+        <div class="search-bar">
+          <input type="text" 
+          class="form-control"
+          placeholder="Search..."
+         [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+         (focus)="showDropdown = true"
+        (blur)="hideDropdown()">
+
+      <!-- Dropdown List -->
+       <div class="dropdown-container">
+        <ul *ngIf="searchTerm && showDropdown" class="dropdown-list">
+          <!-- Show "No match found" if the filtered list is empty -->
+          <li  *ngIf="searchTerm && filteredItems.length === 0" class="no-match" >
+            No match found
+          </li>
+        <li *ngFor="let item of filteredItems" (mousedown)="handleSearchAction(item)" >
+          <h4>{{ item.caption }}</h4>
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-id-badge"></i>&nbsp;{{ item.authorname }}</span>
+            <span><i class="fa-solid fa-calendar-days"></i>&nbsp;{{ item.effectiveDateTime | date:'dd-MMM-yyyy' }}</span>
+            <span><i class="fa-solid fa-layer-group"></i>&nbsp;{{ item.categoryName }}</span>
+          </div>  
+          <p>{{ item.description | slice:0:100 }}...</p>
+        </li>
+      </ul>
+       </div>
+
+        </div>
+        <div class="categories">
+          <h1>Categories</h1>
+          <ul class="Regular-font">
+            <li *ngFor="let category of categoryCounts" (click)="moveCategoryToTop(category.categoryID)" >
+              {{ category.categoryName }} <span>{{ category.count }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar" style="padding-top: 50px;">
+        <div class="recent-postsH">
+          <h1>Recent Posts</h1>
+        </div>
+
+<div class="recent-posts" style="padding-top:30px;">
+          <div class="post" *ngFor="let post of Recentposts" (click)="moveItemToTop(post.uploadId)">
+            <div class="post-image">
+              <img [src]="post.filePath" alt="Post Image" class="img-fluid small-img">
+            </div>
+            <div class="post-info" >
+              <h4>{{ post.caption }}</h4>
+              <p>{{ post.effectiveDateTime | date:'dd-MMM-yyyy' }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<div  class="d-flex justify-content-center align-items-center section-body" style="background: #c9c6c6;margin-right: 0;" >
+<div class="d-none d-lg-block features-container" >
+  <div class="row">
+    <div class="col-lg-3 feature-item" >
+
+
+      <i class="icon-class">
+        <img class="icon-class-size" src="../../assets/Images/trophy_196049.png">
+      </i>
+      <h3>Best in Class</h3>
+      <p>Design Services</p>
+    </div>
+    <div class="col-lg-3 feature-item">
+      <i class="icon-class">
+        <img class="icon-class-size" src="../../assets/Images/check_157977.png">
+      </i>
+      <h3>Installation</h3>
+      <p>Expert Execution</p>
+    </div>
+    <div class="col-lg-3 feature-item">
+      <i class="icon-class">
+        <img class="icon-class-size" src="../../assets/Images/training_16685422.png">
+      </i>
+      <h3>Training</h3>
+      <p>Expert Guidance</p>
+    </div>
+    <div class="col-lg-3 feature-item">
+      <i class="icon-class">
+        <img class="icon-class-size" src="../../assets/Images/customer-service.png">
+      </i>
+      <h3>Technical Support</h3>
+      <p>Dedicated Support</p>
+    </div>
+ </div>
+</div>
+  <!-- Carousel for mobile view -->
+<div id="carouselExampleIndicators" class="carousel slide d-lg-none features-container" data-bs-ride="carousel">
+        <div class="carousel-inner" style="max-height: 160px;">
+          <div class="carousel-item active feature-item text-center">
+            <i class="icon-class ">
+              <img class="icon-class-size" src="../../assets/Images/trophy_196049.png">
+            </i>
+            <h3>Best in Class</h3>
+            <p>Design Services</p>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class">
+              <img class="icon-class-size" src="../../assets/Images/check_157977.png">
+            </i>
+            <h3>Installation</h3>
+            <p>Expert Execution</p>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class">
+              <img class="icon-class-size" src="../../assets/Images/training_16685422.png">
+            </i>
+            <h3>Training</h3>
+            <p>Expert Guidance</p>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class">
+              <img class="icon-class-size" src="../../assets/Images/customer-service.png">
+            </i>
+            <h3>Technical Support</h3>
+            <p>Dedicated Support</p>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+</div>
+
+</div>
+
+
+
+
+
+
+

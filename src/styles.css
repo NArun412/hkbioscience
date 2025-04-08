@@ -1,0 +1,69 @@
+@media (max-width: 576px) {
+  /* Styles for smaller screens */
+  .container {
+      width: 100%;
+  }
+
+  .bs-datepicker .bs-datepicker-head {
+    background-color: #007bff !important; /* Force the background color change */
+    color: #fff !important; /* Optional: force text color change */
+  }
+  
+ /* .header1 , h1{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold;
+  font-size: 52px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header2 , h2{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header3 , h3{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  text-decoration: none;
+  line-height: Automatic;
+ }
+
+ .header4 , h4{
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-weight: SemiBold;
+  font-size: 24px;
+  text-decoration: none;
+  line-height: 150%;
+ }
+
+ .header5 , h5{
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-weight: SemiBold;
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 150%;
+ }
+
+ .BodyText{
+  font-family: 'Poppins-Regular', sans-serif;
+  font-weight: SemiBold;
+  font-size: 16px;
+  text-decoration: none;
+ }
+
+ .MainButtonText{
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: Bold;
+  font-size: 16px;
+  text-decoration: none;
+ } */
+  
+}
+.note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
+  font-family: 'Poppins-Regular', sans-serif !important;
+}

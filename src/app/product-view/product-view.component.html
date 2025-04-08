@@ -1,0 +1,47 @@
+<div class="full-width-new" #targetElement>
+  <div class="row d-flex align-items-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 fixed-image image-container" style="position: sticky;">
+            <div class="image-box-main" style="padding: 10px;">
+                <img [src]="imagepath" class="img-fluid" alt="Image Description" style="height: 400px;padding: 20px;">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 content-container">
+            <div class="blog-tc">
+                <h4>{{productname}}</h4>
+                <p>{{subtitle}}</p>
+                <h2  [innerHTML]="getDescription()"></h2>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="section-4">
+ 
+ 
+            <span><h1 style="font-size:30px;text-align:left;">Similar Products</h1></span>
+           
+               <div class="section-body">
+            
+                 <div *ngFor="let post of smiliarproductshow" class="section-col" style="cursor: pointer;" (click)="RedirectProduct(post.uploadId)" >
+           
+                   <div class="image-box">
+                     <img [src]="post.filePath">
+                   </div>
+                   <div class="section-content">
+                     <h4>{{post.productName}}</h4>
+                     <p>{{post.subTitle}}</p>
+                     <a (click)="RedirectProduct(post.uploadId)" class="link">Learn More</a>
+                   </div>
+           
+               </div>
+               </div>
+             </div>
+
+    </div>
+
+
+
+</div>

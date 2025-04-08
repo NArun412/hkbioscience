@@ -1,0 +1,305 @@
+<div class="plannerDiv" *ngIf="!Issubmitted">
+  <div class="row">
+    <div class="col-lg-7 text-white" style="margin-bottom: 38px;">
+      <p style="font-weight: 600;letter-spacing: 3px;">HKB Planner</p>
+    </div>
+    <div class="col-lg-5">
+    </div>
+  </div>
+  <div class="row" *ngIf="!Issubmitted">
+    <div class="col-lg-10 text-white">
+      <h1 class="h1Text" *ngIf="panelone">First, Let's get to know you.</h1>
+      <h1 class="h1Text" *ngIf="panelone">What is your name?</h1>
+      <h1 class="h1Text" *ngIf="paneltwo">Hi, {{name}}!<br>What type of industry are
+        you in?</h1>
+      <h1 class="h1Text" *ngIf="panelthree">what class of clean room are you most
+        interested in?</h1>
+      <h1 class="h1Text" *ngIf="panelfour"> {{name}}, how should we contact you?</h1>
+    </div>
+    <div class="col-lg-2">
+    </div>
+  </div>
+
+
+  <div class=" text-white checkboxContainer" *ngIf="panelfour">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+        [(ngModel)]="selectedOption" value="email" (change)="onOptionChange()" checked>
+      <label class="form-check-label" for="inlineRadio1">Email</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+        [(ngModel)]="selectedOption" value="text" (change)="onOptionChange()">
+      <label class="form-check-label" for="inlineRadio2">Text</label>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="panelone || paneltwo || panelfour">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="form-set" *ngIf="panelone">
+          <input type="text" style="font-family: 'Poppins-Regular', sans-serif !important;" [(ngModel)]="name"
+            (ngModelChange)="validateName()" maxlength="50" placeholder="My name is" required>
+          <div *ngIf="nameError" style="color: red; font-size: 22px;">
+            Please enter only alphabets
+          </div>
+          <div *ngIf="!name && changepanel1sub" style="color: red; font-size: 22px;">
+            Please enter your name
+          </div>
+        </div>
+
+        <div class="form-set" *ngIf="paneltwo">
+          <input type="text" style="font-family: 'Poppins-Regular', sans-serif !important;" [(ngModel)]="industry"
+            (ngModelChange)="validateIndustry()" maxlength="50" placeholder="My industry is" required>
+          <div *ngIf="nameError" style="color: red; font-size: 22px;">
+            Please enter only alphabets
+          </div>
+          <div *ngIf="!industry && changepanel2sub" style="color: red; font-size: 22px;">
+            Please enter your industry
+          </div>
+        </div>
+
+        <div class="form-set" *ngIf="selectedOption === 'email' && panelfour">
+          <input type="text" style=" font-family: 'Poppins-Regular', sans-serif !important;" [(ngModel)]="email"
+            (ngModelChange)="validateEmail()" required placeholder="example@youremail.com">
+          <div *ngIf="emailError && email && selectedOption === 'email'" style="color: red; font-size: 22px;">
+            Please enter a valid email address
+          </div>
+          <div *ngIf="!email &&  changepanel4sub" style="color: red; font-size: 22px;">
+            Please enter your email address
+          </div>
+        </div>
+
+        <div class="form-set" *ngIf="selectedOption === 'text' && panelfour">
+          <input type="text" style=" font-family: 'Poppins-Regular', sans-serif !important;" [(ngModel)]="textInput"
+            (ngModelChange)="validateText()" required placeholder="Enter your Feedback">
+          <div *ngIf="textError && selectedOption === 'text'" style="color: red; font-size: 22px;">
+            Please enter valid text (only alphabets are allowed)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+  <div class="container-fluid mt-5" *ngIf="panelthree">
+    <div class="row d-flex justify-content-around">
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-center align-items-center panel panel1"
+          [ngClass]="{
+            'panel-clicked': cleanroomClass === 'Class 100',
+            'disablepanel': cleanroomClass && cleanroomClass !== 'Class 100'
+          }"
+          (click)="toggleCardDesign($event, 'Class 100')">
+          <i class="bi bi-prescription"></i>
+        </div>
+        <div class="card paneltext">
+          <h4 class="card-title">Class 100</h4>
+          <h6 class="card-subtitle mb-2">ISO 5</h6>
+        </div>
+      </div>
+  
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-center align-items-center panel panel2"
+          [ngClass]="{
+            'panel-clicked': cleanroomClass === 'Class 1000',
+            'disablepanel': cleanroomClass && cleanroomClass !== 'Class 1000'
+          }"
+          (click)="toggleCardDesign($event, 'Class 1000')">
+          <i class="bi bi-prescription"></i>
+        </div>
+        <div class="card paneltext">
+          <h4 class="card-title">Class 1000</h4>
+          <h6 class="card-subtitle mb-2">ISO 6</h6>
+        </div>
+      </div>
+  
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-center align-items-center panel panel3"
+          [ngClass]="{
+            'panel-clicked': cleanroomClass === 'Class 10000',
+            'disablepanel': cleanroomClass && cleanroomClass !== 'Class 10000'
+          }"
+          (click)="toggleCardDesign($event, 'Class 10000')">
+          <i class="bi bi-prescription"></i>
+        </div>
+        <div class="card paneltext">
+          <h5 class="card-title">Class 10000</h5>
+          <h6 class="card-subtitle mb-2">ISO 7</h6>
+        </div>
+      </div>
+  
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-center align-items-center panel panel4"
+          [ngClass]="{
+            'panel-clicked': cleanroomClass === 'Class 100000',
+            'disablepanel': cleanroomClass && cleanroomClass !== 'Class 100000'
+          }"
+          (click)="toggleCardDesign($event, 'Class 100000')">
+          <i class="bi bi-prescription"></i>
+        </div>
+        <div class="card paneltext">
+          <h5 class="card-title">Class 100000</h5>
+          <h6 class="card-subtitle mb-2">ISO 8</h6>
+        </div>
+      </div>
+  
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-center align-items-center panel panel5"
+          [ngClass]="{
+            'panel-clicked': cleanroomClass === 'Unsure/Other',
+            'disablepanel': cleanroomClass && cleanroomClass !== 'Unsure/Other'
+          }"
+          (click)="toggleCardDesign($event, 'Unsure/Other')">
+          <i class="bi bi-prescription"></i>
+        </div>
+        <div class="card paneltext">
+          <h5 class="card-title">Unsure/Other</h5>
+        </div>
+      </div>
+  
+      <div *ngIf="!cleanroomClass && changepanel3sub" style="color: red; font-size: 22px;">
+        Please select a cleanroom class
+      </div>
+    </div>
+  </div>
+
+  <div class=" text-white checkboxContainer2" *ngIf="panelfour">
+    <div class="section-title">When would you like to start your project?</div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="projectStart" id="radio1" [(ngModel)]="projectStartTime"
+        value="90days">
+      <label class="form-check-label" for="radio1">Within the next 90 days</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="projectStart" id="radio2" [(ngModel)]="projectStartTime"
+        value="6months">
+      <label class="form-check-label" for="radio2">3-6 months from now</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="projectStart" id="radio3" [(ngModel)]="projectStartTime"
+        value="12months">
+      <label class="form-check-label" for="radio3">6-12 months from now</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="projectStart" id="radio4" [(ngModel)]="projectStartTime"
+        value="12plusmonths">
+      <label class="form-check-label" for="radio4">12+ months from now</label>
+    </div>
+    <div *ngIf="!projectStartTime && changepanel4sub" style="color: red; font-size: 22px;">
+      Please enter your projectStartTime information
+    </div>
+  </div>
+
+  <div class=" d-flex justify-content-center" *ngIf="panelone || paneltwo || panelthree || panelfour">
+
+    <div class="buttonDiv">
+      <div class="form-button left-button" *ngIf="paneltwo || panelthree || panelfour">
+        <button class="btn" (click)="previousPanel()"> Previous <i class="bi bi-arrow-left"></i> </button>
+      </div>
+      <div class="form-button right-button" *ngIf="panelone">
+        <button class="btn" (click)="changepanel1()">Continue <i class="bi bi-arrow-right"></i></button>
+      </div>
+      <div class="form-button" *ngIf="paneltwo">
+        <button class="btn" (click)="changepanel2()">Continue <i class="bi bi-arrow-right"></i></button>
+      </div>
+
+      <div class="form-button" *ngIf="panelthree">
+        <button class="btn" (click)="changepanel3()">Continue <i class="bi bi-arrow-right"></i></button>
+      </div>
+      <div class="form-button" *ngIf="panelfour">
+        <button class="btn" (click)="Submit()">Submit <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row" *ngIf="!Issubmitted">
+    <div class="col-lg-9 col-md-12"></div>
+    <div class="col-lg-3 col-md-12">
+      <div class="d-flex flex-row-reverse" style="margin-right: 50px;">
+        <button class="btn dotsbtn"><i class="bi bi-chat-dots text-white"></i></button>
+      </div>
+    </div>
+
+  </div> -->
+</div>
+<div *ngIf="Issubmitted">
+  <div class="row" style="background-color:#484645;height: 380px;">
+    <div class="col-md-2">
+      <img class="check-image" src="../../assets/Images/Capture.PNG">
+    </div>
+    <div class="col-md-10">
+
+      <h2 class="pt-4 contact-text">Thank you, {{name}}!</h2>
+      <h2 class="contact-text-2">We'll be in touch shortly</h2>
+    </div>
+  </div>
+  <div class="section-5">
+    <div class="row mt-3">
+      <div class="col-5 d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center align-items-start pt-2" style="padding: 100px;">
+          <div class="col-12">
+            <h1 style="font-weight: 700;" class="sec-5-header">Inspiration for Your Room</h1>
+          </div>
+          <div class="col-12">
+            <p class="pt-2 sec-5-text">From Pharmacy and Hospitals to Cosmetics,<br>
+              We can create the space for your needs.</p>
+          </div>
+          <div class="col-12">
+            <div class="pt-2">
+              <button href="#"
+                class="btn btn-outline-secondary pt-2 pb-2 border border-secondary rounded-0 explorebutton">Explore
+                More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-7 section-body" style="padding: 0;margin: 0;">
+        <div class="section-slide">
+          <div class="section-col">
+            <div class="image-box">
+              <img [src]="images[currentIndex].src" alt="Image Slider">
+            </div>
+          </div>
+          <div class="section-col">
+            <div class="image-box">
+              <img [src]="images[secondIndex].src" alt="Image 2">
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-slide-next" (click)="nextImage()">
+          <div><i class="bi bi-chevron-right"></i></div>
+        </button>
+        <div class="section-slide-thumb"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-6">
+    <div class="blog-header">
+      <h1>Latest from the Blog</h1>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="container-fluid p-1">
+        <div class="row">
+          <div *ngFor="let post of blogPosts" class="col-lg-4 col-md-12 panel-container p-4">
+            <div class="row d-flex align-items-stretch h-100" (click)="RedirectBlog(post.uploadId)" style="cursor: pointer;">
+              <div class="col-3 text-white d-flex justify-content-center align-items-center blogicon">
+                <img src="../../assets/Images/Group 179.png" alt="Blog Image">
+              </div>
+              <div class="col-9 blogcontent d-flex flex-column">
+                <h4>{{ post.caption | slice: 0:15 }} <span *ngIf="post.description.length > 15">......</span></h4>
+                <div class="mt-auto">
+                  <div class="d-flex justify-content-start align-items-center pt-2">
+                    <a class="btn arrowtext">Read More</a> &nbsp;
+                    <i class="bi bi-arrow-right blogarrow"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

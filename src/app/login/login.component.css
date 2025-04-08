@@ -1,0 +1,126 @@
+.imgContainer {
+    position: absolute;
+    top: 20px;
+
+  }
+
+  @font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../../assets/font/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../../assets/font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../../assets/font/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  p {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  h5 {
+    font-family: 'Poppins-SemiBold', sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    
+  }
+.Regular-font {
+    font-family: 'Poppins-Regular', sans-serif;
+  }
+  .Blod-font {
+    font-family: 'Poppins-Bold', sans-serif;
+  }
+
+  .footer-font {
+    font-family: 'Poppins-SemiBold', sans-serif;
+  }
+  h2{
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 40px;
+  }
+  a{
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0%;
+  }
+  .bannericon {
+    position: absolute;
+    width: 139px;
+    height: 66px;
+  }
+
+  .btnGet{
+    background: #ed4d1a;
+    font-family: 'Poppins-Bold-normal', sans-serif;
+    color: #fff;
+    
+    
+  }
+
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .password-container {
+    position: relative;
+  }
+  
+  input {
+    padding-right: 30px; /* space for the icon */
+  }
+
+  .form-control.is-invalid{
+    background-image: none;
+}
+
+h4 {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 24px;
+  line-height: 150%;
+  
+}
+
+.custom-button {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ed4d1a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button i {
+  margin-right: 8px;
+}
+
+.custom-button:hover {
+  background-color: #d4411a;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  background-color: #bf3a18;
+}

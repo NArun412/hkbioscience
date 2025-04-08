@@ -1,0 +1,183 @@
+<div *ngIf="isUserLoggedIn">
+
+<div class="container" #targetElement>
+  
+    <form (ngSubmit)="onSubmit()" #blogPostForm="ngForm" novalidate>
+      
+      <!-- Image Upload and Categories Dropdown Side by Side -->
+      <div class="form-row">
+        
+        <!-- Image Upload -->
+        <div class="form-group upload-group">
+          <label for="Upload">Upload Image <span class="required">*</span></label>
+          <div class="drag-drop-container"
+              
+              [class.is-invalid]="!imagePreview && blogPostForm.submitted" 
+               (dragover)="onDragOver($event)" 
+               (drop)="onDrop($event)" 
+               (click)="fileInput.click()">
+            <p>Drag and drop an image here, or click to select one</p>
+            <input type="file" id="fileInput" 
+            required
+                   (change)="onFileChange($event)" 
+                   accept="image/*" 
+                   #fileInput 
+                   hidden 
+                   
+                    />
+            <div *ngIf="imagePreview" class="image-preview">
+              <img [src]="imagePreview" alt="Image Preview" />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Categories Dropdown -->
+        
+      </div>
+      <div class="form-row">
+      <div class="form-group categories-dropdown">
+        <label for="category">Category <span class="required">*</span></label>
+        <select style="height:50px;" id="category" 
+                [(ngModel)]="selectedCategory.id" 
+                name="category" 
+                class="form-control"
+                required
+                [class.is-invalid]="!selectedCategory.id && blogPostForm.submitted">
+          <option [ngValue]="null" [disabled]="true" >Select a category</option>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
+        </select>
+      </div>
+
+      <div class="form-group author-txt">
+        <label for="author-txt">Author <span class="required">*</span></label>  
+        <input id="authorname" type="text" 
+        [(ngModel)]="authorname" 
+        name="authorname" 
+        style="height:50px;font-family:'Poppins-Regular';"
+        class="form-control"
+        placeholder="Enter"
+        autocomplete="off"
+        required
+        maxlength="100"
+        [class.is-invalid]="!authorname && blogPostForm.submitted">
+      </div>
+
+
+      
+
+      <div class="form-group effective-date">
+        <label for="effective-date">Effective Date</label>  
+        <input type="text" 
+         [(ngModel)]="selectedDate" 
+         id="effective-date"
+         autocomplete="off"
+         [minDate]="minDate"
+         name="effectiveDate"
+         style="height:50px;"
+         class="form-control"
+         placeholder="DD/MM/YYYY"
+         bsDatepicker 
+         [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+         (ngModelChange)="onInputChange()">
+  
+  <div *ngIf="!isDateValid" class="text-danger">
+    Invalid date format. Please use DD/MM/YYYY.
+  </div>
+  <div *ngIf="!isEffDateValid && !Isedit && isDateValid" class="text-danger">
+    The date must be either today or a future date.
+  </div>
+      </div>
+      </div>
+
+      
+  
+      <!-- Caption Text Area -->
+      <div class="form-group">
+        <label for="caption">Caption <span class="required">*</span></label>
+        <textarea id="caption"
+                  [(ngModel)]="caption"
+                  class="form-control Caption-txt"
+                  style="font-family:'Poppins-Regular'"
+                  name="caption" 
+                  rows="3" 
+                  required
+                  maxlength="255"
+                  [class.is-invalid]="!caption && blogPostForm.submitted"></textarea>
+                  <div *ngIf="caption.length >= 255">
+                    <p style="color: red;">Maximum length of 255 characters reached.</p>
+                  </div>
+      </div>
+  
+      <!-- Description Text Area -->
+      <div class="form-group">
+        <label for="description">Description <span class="required">*</span></label>
+        <textarea #descriptionTextarea id="description" 
+                  [(ngModel)]="description"
+                  style="font-family:'Poppins-Regular'"
+                  class="form-control Description-txt" 
+                  name="description" 
+                  rows="6" 
+                  required
+                  [class.is-invalid]="!description && blogPostForm.submitted"></textarea>
+      </div>
+  
+      <div class="button-container">
+        <button style="float: right;" class="submit-but" type="submit">
+            <i class="fa-solid fa-check"></i>&nbsp; {{ Isedit ? 'Update' : 'Submit' }}
+        </button>
+        &nbsp;
+        <button style="float: right; margin-right: 20px;" class="back-but" type="button" (click)="onCancel($event)">
+          <i class="fa-solid fa-backward"></i>&nbsp; {{ Isedit ? 'Cancel' : 'Back' }}
+      </button>
+    </div>
+    
+    
+      
+    </form>
+
+   
+  </div>
+  <div> &nbsp;</div>
+  <div> &nbsp;</div>
+  <label for="category">Total Posts : {{blogPosts.length}} </label>
+  <div class="blog-container" #postargetElement>
+    
+    <div *ngFor="let post of paginatedPosts" class="blog-post">
+      <!-- Blog Image -->
+          <!-- Edit and Delete Buttons -->
+  
+      <div class="blog-image">
+        <img [src]="post.filePath" alt="Blog Image">
+      </div>
+  
+      <!-- Blog Info -->
+      <div class="blog-info">
+        <div class="blog-meta">
+          <div class="blog-actions">
+            <button (click)="editPost(post.uploadId)" class="btn btn-edit"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Edit</button>
+            <button (click)="deletePost(post.uploadId)" class="btn btn-delete"><i class="fa-solid fa-trash"></i> &nbsp;Delete</button>
+          </div>
+          <span><i class="fa-solid fa-id-badge"></i>&nbsp;{{ post.authorname }}</span>
+          <span><i class="fa-solid fa-calendar-days"></i>&nbsp;{{ post.effectiveDateTime | date:'dd-MMM-yyyy' }}</span>
+          <span><i class="fa-solid fa-layer-group"></i>&nbsp;{{ post.categoryName }}</span>
+        
+        </div>
+        
+      </div>
+  
+      <!-- Blog Title and Content -->
+      <div class="blog-tc">
+        <h4>{{ post.caption | slice: 0:60 }}<span *ngIf="post.description.length > 60">...</span></h4>
+        <!-- <p>{{ post.description | slice: 0:110 }}<span *ngIf="post.description.length > 110">...</span></p> -->
+      </div>
+
+    
+    </div>
+  </div>
+  <div class="pagination-container">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
+  
+  

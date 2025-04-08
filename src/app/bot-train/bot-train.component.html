@@ -1,0 +1,195 @@
+<div class="container" *ngIf="isUserLoggedIn">
+  <div class="p-2">
+    <button class="btn btn-primary btn-sm" (click)="AddIntent()" ><i class="fa-regular fa-square-plus" ngbTooltip="Add Intent"></i>&nbsp; Add new Intent</button>
+
+
+  </div>
+
+  <div class="p-2 d-flex align-items-center">
+    <!-- <input type="text" 
+      class="form-control"
+      placeholder="Search... Intents, Keywords"
+      style="width: 200px;"
+      (input)="onSearch()"
+      (blur)="hideDropdown()">
+  
+    <button class="btn btn-primary ms-2">Reset filter</button> -->
+  </div>
+<div class="by-5">
+      <!-- Table header -->
+   <p>Total Intent: {{intentsA.length}}</p> 
+<div class="row header-row d-none d-md-flex">
+          <div class="col-3"><strong>Intent Name</strong></div>
+          <div class="col-4"><strong>Keyword</strong></div>
+          <div class="col-5"><strong>Response</strong></div>
+</div>
+
+      <!-- Table content with horizontal scroll on smaller screens -->
+<div class="table-responsive">
+<div *ngFor="let intent of displayeintents; let i = index" [ngClass]="{'odd-rows': i % 2 === 0, 'even-rows': i % 2 !== 0}" >
+               <div class="row mb-2 d-none d-md-flex"   *ngFor="let pair of intent.keywordsAndResponses; let j = index">
+               <ng-container>
+                <div class="col-2" *ngIf="j === 0"><strong>{{ intent.intentName }}</strong>
+                </div>
+                <div class="col-1" *ngIf="j === 0">
+                  <span><a style="cursor: pointer;" (click)="openModal(intent.intentName,intent.intentId,'Intent')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+                  &nbsp;<span><a style="cursor: pointer;" (click)="deletevent(intent.intentName,intent.intentId,'Intent')"><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+                </div>
+                <div class="col-3" *ngIf="j != 0"></div>
+                <div class="col-3">{{ pair.keyword }}</div>
+                <div class="col-1">
+                  <div *ngIf="pair.keyword">
+                  <span style="cursor: pointer;"><a  (click)="openModal(pair.keyword,pair.keywordsId,'Keyword')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+                  &nbsp;<span *ngIf="intent.iskeydelete"><a style="cursor: pointer;" (click)="deletevent(pair.keyword,pair.keywordsId,'Keyword')"><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+                  &nbsp;<span *ngIf="j === 0"><a style="cursor: pointer;" (click)="openModal('',intent.intentId,'Keyword',true)"><span style="color: blue"><i class="fa-regular fa-square-plus" ngbTooltip="Add New Keyword"></i></span></a></span>
+                </div>
+                </div>
+                <div class="col-4">{{ pair.response }}</div>
+                <div class="col-1">
+                  <div *ngIf="pair.response">
+                  <span><a style="cursor: pointer;" (click)="openModal(pair.response,pair.responsesId,'Response')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+                  &nbsp;<span *ngIf="intent.isresponsedelete"><a style="cursor: pointer;" (click)="deletevent(pair.response,pair.responsesId,'Response')"><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+                  &nbsp;<span *ngIf="j === 0"><a style="cursor: pointer;" (click)="openModal('',intent.intentId,'Response',true)"><span style="color: blue"><i class="fa-regular fa-square-plus" ngbTooltip="Add New Response"></i></span></a></span>
+                  </div>
+                </div>
+               </ng-container>
+               </div>
+
+
+ 
+    <div class="row mb-2 d-md-none" *ngFor="let pair of intent.keywordsAndResponses; let j = index">
+    <ng-container>
+     <div  class="col-12" *ngIf="j === 0">
+      <div style="float: left;">&nbsp;&nbsp;<span><a style="cursor: pointer;" (click)="openModal(intent.intentName,intent.intentId,'Intent')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+        &nbsp;<span><a style="cursor: pointer;" (click)="deletevent(intent.intentName,intent.intentId,'Intent')" ><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+       </div>&nbsp;
+
+       <strong> Name: &nbsp;</strong><strong>{{ intent.intentName }}</strong>
+    </div>
+     <div  class="col-12" *ngIf="j != 0">&nbsp;</div>
+     <div  class="col-12" *ngIf="pair.keyword" >
+      <div style="float: left;">&nbsp;&nbsp;<span><a style="cursor: pointer;" (click)="openModal(pair.keyword,pair.keywordsId,'Keyword')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+      &nbsp;<span *ngIf="intent.iskeydelete"><a style="cursor: pointer;" (click)="deletevent(pair.keyword,pair.keywordsId,'Keyword')"><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+      &nbsp;<span *ngIf="j === 0"><a style="cursor: pointer;" (click)="openModal('',intent.intentId,'Keyword',true)"><span style="color: blue"><i class="fa-regular fa-square-plus" ngbTooltip="Add New Keyword"></i></span></a></span>
+    </div> &nbsp;
+      
+    <strong>Keyword: &nbsp;</strong>{{ pair.keyword }}
+
+    </div>
+     <div  class="col-12" *ngIf="pair.response" >
+      <div style="float: left;"> &nbsp;&nbsp;<span><a style="cursor: pointer;" (click)="openModal(pair.response,pair.responsesId,'Response')"><span style="color: green;"><i class="fa-solid fa-pen-to-square" ngbTooltip="Edit"></i></span></a></span>
+      &nbsp;<span *ngIf="intent.isresponsedelete"><a style="cursor: pointer;" (click)="deletevent(pair.response,pair.responsesId,'Response')"><span style="color: red;"><i class="fa-solid fa-trash" ngbTooltip="Delete"></i></span></a></span>
+      &nbsp;<span *ngIf="j === 0"><a style="cursor: pointer;" (click)="openModal('',intent.intentId,'Response',true)"><span style="color: blue"><i class="fa-regular fa-square-plus" ngbTooltip="Add New Keyword"></i></span></a></span>
+      </div>&nbsp;
+
+      <strong>Response: &nbsp;</strong>{{ pair.response }}
+    </div>
+    </ng-container>
+    </div>
+
+  </div>
+
+</div>
+      <!-- Pagination Controls -->
+
+  </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination-controls mt-3 text-center">
+      <button class="btn btn-primary btn-sm " (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+      <span class="mx-2">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="btn btn-primary btn-sm" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">{{title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="mb-3">
+              <p style="color: red;">{{isExistalert}}</p>
+              <textarea [(ngModel)]="selectedval" class="form-control"  rows="10"
+              (input)="adjustTextareaHeight($event)" >
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  (click)="saveChanges()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editModaltext" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">{{title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="mb-3">
+              <p style="color: red;">{{isExistalert}}</p>
+              <input [(ngModel)]="selectedval" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  (click)="saveChanges()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Add new Intent</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="mb-3">
+              <label><strong>Intent</strong> </label>
+              <p style="color: red;">{{isExistalertInt}}</p>
+              <input [(ngModel)]="textintent" class="form-control" (blur)="Checkint()" />
+            </div>
+            <div class="mb-3">
+              <p style="color: red;">{{isExistalertKey}}</p>
+              <label><strong>Keywords</strong> Note: If you input multiple keywords separated by the symbol (^). e.g. Keyword1.^ Keyword2.</label>
+              <textarea [(ngModel)]="textkeyword" class="form-control"  (blur)="CheckKey()" rows="3"
+              (input)="adjustTextareaHeight($event)" >
+            </textarea>
+            </div>
+            <div class="mb-3">
+              <p style="color: red;">{{isExistalertRes}}</p>
+              <label><strong>Response</strong> Note: If you input multiple responses separated by the symbol (^)</label>
+              <textarea  [(ngModel)]="textresponse" class="form-control"  rows="10"
+              (input)="adjustTextareaHeight($event)" >
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  [disabled]="isExistalertKey||isExistalertInt"  (click)="saveIntentChanges()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+
+

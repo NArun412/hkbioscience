@@ -1,0 +1,73 @@
+<div class="chat-container modal-content" *ngIf="isVisible"  style="overflow-x: hidden;">
+  <div class="chat-header">
+   <div class="row" style="float:right;margin-right: 4px;"> 
+   <button *ngIf="isUserLoggedIn" class="btn btn-primary btn-sm"  routerLink="/TrainBot" style="width: 80px;font-size: 11px;">Train Bot</button> &nbsp;
+   <button class="close-button" (click)="onClose()">X</button>
+   </div>
+
+     <div class="chat-title">
+     <b>HK Bioscience</b>
+     </div>
+  </div>
+  <div class="chat-body" #scrollContainer>
+     <span class="message-time"> {{ TodayDate | date: 'dd-MMM-yyyy' }}</span>
+     <div class="message-header">
+        <img src="../../assets/Images/red mark.svg" alt="HK Biosciences Logo" class="logo">
+        <span>HK Bioscience</span>
+     </div>
+     <div *ngFor="let message of messages" class="chat-message" [ngClass]="{'user-message': message.Fromuser, 'bot-message': !message.Fromuser}">
+         <div class="message-content">
+        <p>{{ message.content }}</p>
+        <span class="message-status">{{ message.status }} &nbsp; {{ message.time| date:'hh:mm a'}}</span>
+         </div>
+          <div class="message-content" *ngIf="message.Isfirst && !emailfalg">
+        <p><b>Email <span style="color:red">*</span></b></p>
+        <form [formGroup]="emailForm">
+           <div class="email-input-group">
+              <input type="text" 
+              formControlName="email" 
+              placeholder="your@email.com"
+              [(ngModel)]="email" 
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+              class="email-input" />     
+              <button class="send-buttont" aria-label="Send"  [disabled]="emailForm.invalid" (click)="emailsend()">
+              <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+              </button>
+           </div>
+           <div *ngIf="emailForm?.invalid && emailForm?.touched">
+            <span *ngIf="emailForm.controls['email'].errors?.['required']" style="color:red;font-size:10px;">Email is required.</span>
+            <span *ngIf="emailForm.controls['email'].errors?.['pattern']" style="color:red;font-size:10px;">Invalid email.</span>
+          </div>
+
+        </form>
+          </div>
+     </div>
+    </div><!--  body end  -->
+  <div class="chat-footer" *ngIf="emailfalg">
+     <div class="message-container">
+        <textarea 
+        id="messageTextarea"
+        placeholder="Type a message..." 
+        [(ngModel)]="sendmessages" 
+        (keydown)="onKeydown($event)" 
+        (input)="adjustTextareaHeight($event)" 
+        class="message-input"
+        rows="1">
+        </textarea>
+        <span class="send-button-container">
+        <button class="send-button" (click)="sendmsg()">
+        <i class="fa-solid fa-paper-plane"></i> 
+        </button>
+        </span>
+     </div>
+  </div>
+  <!-- <div *ngIf="emailfalg">
+     <span>
+       <button class="end-button"  (click)="Endchat()">
+         End Chat &nbsp;<i class="fa-regular fa-circle-xmark"></i>
+       </button>
+     </span>
+     </div> -->
+
+
+</div>

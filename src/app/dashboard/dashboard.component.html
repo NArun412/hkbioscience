@@ -1,0 +1,323 @@
+<div class="sction-1 banner">
+  <section class="hero-section">
+    <div class="imgContainer">
+      <img src="../../assets/Images/red mark.svg" class="bannericon">
+    </div>
+    <div class="container">
+        <p class="Turnkey">Turnkey Solutions</p>
+        <h1 class="header1banner" style="color: #484645;">Custom Modular Cleanroom Systems</h1>
+        <p class="bannerText pt-2">With over 40 years of experience, we offer a unique blend of expertise as designers and consultants.</p>
+        <!-- <a href="#" class="btn btn-plan mt-4">Plan Your Project</a> -->
+        <button class="btn btn-plan mt-4"><a class="nav-link" routerLink="/Plan">Plan Your Project</a></button>
+
+    </div>
+</section>
+</div>
+<div class="section-2">
+  <div class="section-header">
+    <!-- <h2 style="font-weight: 800;text-align: center">Browse The Range</h2> -->
+    <h1>Browse The Range</h1>
+
+    <p class="BrowseText">FM Approved panels which come in a range of cores, skins, and
+      finishes</p>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 panel-container p-4 d-flex flex-column justify-content-center align-items-center"
+        (click)="RedirectProduct('Panels')" style="cursor: pointer;" >
+          <div class="d-flex justify-content-center align-items-center panel">
+            <!-- <i class="bi bi-prescription"></i> -->
+            <img class="panel-img" src="../../assets/Images/Group 170.png">
+          </div>
+          <div class="paneltext">
+            <h4 class="text-center" style="font-weight: 700;">Panels</h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 panel-container p-4 d-flex flex-column justify-content-center align-items-center"
+        (click)="RedirectProduct('Ceilings')" style="cursor: pointer;">
+          <div class="d-flex justify-content-center align-items-center panel">
+            <!-- <i class="bi bi-prescription"></i> -->
+            <img class="panel-img" src="../../assets/Images/Group 169.png">
+          </div>
+          <div class="paneltext">
+            <h4 class="text-center" style="font-weight: 700;">Ceilings</h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 panel-container p-4 d-flex flex-column justify-content-center align-items-center"
+          (click)="RedirectProduct('Doors')" style="cursor: pointer;">
+          <div class="d-flex justify-content-center align-items-center panel">
+            <!-- <i class="bi bi-door-open"></i> -->
+            <img class="panel-img" src="../../assets/Images/Group 171.png">
+          </div>
+          <div class="paneltext">
+            <h4 class="text-center" style="font-weight: 700;">Doors</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center py-3">
+    <button href="#" routerLink="/Product" class="btn btn-outline-secondary pt-2 pb-2 rounded-0 showButton">Show More</button>
+  </div>
+</div>
+
+<div class="section-3">
+  <div class="section-header">
+    <!-- <h2 style="font-weight: 800;text-align: center;">How it Works</h2> -->
+    <h1>How it Works</h1>
+
+    <p class="BrowseText">4 Easy Steps from Start to Finish</p>
+  </div>
+  <div class="d-flex justify-content-center align-items-center section-body" style="background: #c9c6c6; height: 200px;">
+    <div class="container text-center">
+      <!-- Grid layout for medium screens and above -->
+      <div class="d-none d-lg-block">
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-12 p-2">
+            <p class="worksteptext">
+              <img src="../../assets/Images/discover.png" alt="Discover" class="img-fluid"> &nbsp;Discover
+            </p>
+          </div>
+          <div class="col-md-3 col-12 p-2">
+            <p class="worksteptext">
+              <img src="../../assets/Images/guarantee.png" alt="Design" class="img-fluid"> &nbsp;Design
+            </p>
+          </div>
+          <div class="col-md-3 col-12 p-2">
+            <p class="worksteptext">
+              <img src="../../assets/Images/Group.png" alt="Build" class="img-fluid"> &nbsp;Build
+            </p>
+          </div>
+          <div class="col-md-3 col-12 p-2">
+            <p class="worksteptext">
+              <img src="../../assets/Images/install.png" alt="Install" class="img-fluid"> &nbsp;Install
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Carousel for mobile view -->
+      <div id="carouselExampleIndicators" class="carousel slide d-lg-none features-container" data-bs-ride="carousel">
+        <div class="carousel-inner" style="max-height: 98px;">
+          <div class="carousel-item active feature-item text-center">
+            <i class="icon-class ">
+            <img src="../../assets/Images/discover.png" class="img-fluid" alt="Discover">
+            </i>
+            <h3 class="mt-2 carosel-font">Discover</h3>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class ">
+            <img src="../../assets/Images/guarantee.png" class="img-fluid" alt="Design">
+          </i>
+            <h3 class="mt-2 carosel-font">Design</h3>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class ">
+            <img src="../../assets/Images/Group.png" class="img-fluid" alt="Build">
+            </i>
+            <h3 class="mt-2 carosel-font">Build</h3>
+          </div>
+          <div class="carousel-item feature-item text-center">
+            <i class="icon-class ">
+            <img src="../../assets/Images/install.png" class="img-fluid" alt="Install">
+            </i>
+            <h3 class="mt-2 carosel-font">Install</h3>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section-5">
+  <div class="row mt-3" style="padding: 10px;">
+    <div class="col-5 d-flex justify-content-center align-items-center">
+      <div class="row d-flex justify-content-center align-items-start pt-2" style="padding: 100px;">
+        <div class="col-12">
+          <h1 style="font-weight: 700" class="section-h" >Inspiration for Your Room</h1>
+        </div>
+        <div class="col-12">
+          <p class="pt-2 sec-5-text section-p">From Pharmacy and Hospitals to Cosmetics,<br>
+            We can create the space for your needs.</p>
+        </div>
+        <div class="col-12">
+          <div class="pt-2">
+            <button href="#"
+              class="btn btn-outline-secondary pt-2 pb-2 border border-secondary rounded-0 explorebutton">Explore
+              More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="col-7 section-body" style="padding: 0;margin: 0;">
+      <div class="section-slide">
+        <div class="section-col">
+          <div class="image-box">
+            <img [src]="images[currentIndex].src" alt="Image Slider">
+          </div>
+        </div>
+        <div class="section-col">
+          <div class="image-box">
+            <img [src]="images[secondIndex].src" alt="Image 2">
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-slide-next" (click)="nextImage()">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="section-6">
+  <div class="blog-header">
+    <h1>Latest from the Blog</h1>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="container-fluid p-1">
+      <div class="row">
+        <div *ngFor="let post of blogPosts" class="col-lg-4 col-md-12 panel-container p-4">
+          <div class="row d-flex align-items-stretch h-100" (click)="RedirectBlog(post.uploadId)" style="cursor: pointer;">
+            <div class="col-3 text-white d-flex justify-content-center align-items-center blogicon">
+              <img src="../../assets/Images/Group 179.png" alt="Blog Image">
+            </div>
+            <div class="col-9 blogcontent d-flex flex-column">
+              <h4>{{ post.caption | slice: 0:15 }} <span *ngIf="post.description.length > 15">......</span></h4>
+              <div class="mt-auto">
+                <div class="d-flex justify-content-start align-items-center pt-2">
+                  <a class="btn arrowtext">Read More</a> &nbsp;
+                  <i class="bi bi-arrow-right blogarrow"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="section-7 pt-3 pb-5">
+    <h4 style="text-align: center;color:#484645;opacity: 1;" class="BrowseText" >Share your setup with</h4>
+    <div class="blog-header">
+      <h1>#HKBCleanroom</h1>
+    </div>
+    <!-- <div class="gallery">
+      <div *ngFor="let image of images;"  class="item"
+          >
+          <img class="cleanroom_img" #img  src="{{image.src}}" 
+          srcset="{{image.src}} 800w,
+          {{image.src}} 1000w ,
+          {{image.src}} 1200w" sizes="(max-width: 1000px) 30vw, 400px">
+     </div>
+    </div> -->
+    <div class="d-none d-md-block">
+    <div class="container-fluid mt-5">
+      <div class="row">
+          <!-- First Column -->
+          <div class="col-md-5 cleanroom-width">
+              <div class="row" style="width: 101%;">
+                  <div class="col-2">
+                      <img src="../../assets/Images/CR1.png" alt="Image 5" class="img-fluid-CR1 CR1-style">
+                  </div>
+  
+      <div class="col-10">
+                      <img src="../../assets/Images/CR2.png" alt="Image 5" class="img-fluid CR2-style">
+                  </div>
+              </div>
+      <div class="row" style="padding-top: 10px;width: 101%;">
+                  <div class="col-5">
+                      <img src="../../assets/Images/CR6.png" alt="Image 5" class="img-fluid" style="width: 100%;padding-right: 14px;">
+                  </div>
+  
+      <div class="col-7">
+                      <img src="../../assets/Images/CR7.png" alt="Image 5" class="img-fluid" style="width: 100%;padding-right: 20px;">
+                  </div>
+              </div>
+          </div>
+  
+  
+          <!-- Second Column -->
+          <div class="col-md-3">
+              <div class="row">
+                  <div class="col-12">
+                      <img src="../../assets/Images/CR3.png" alt="Image 5" class="img-fluid CR3-style">
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Third Column -->
+          <div class="col-md-4">
+              <div class="row">
+                  <div class="col-7">
+                      <img src="../../assets/Images/CR4.png" alt="Image 5" class="img-fluid" style="width:96%;padding-top: 91px;padding-left: 15px;">
+                  </div>
+  
+      <div class="col-5">
+                      <img src="../../assets/Images/CR5.png" alt="Image 5" class="img-fluid" style="width: 100%;height: 98%;">
+                  </div>
+              </div>
+      <div class="row">
+                  <div class="col-4">
+                      <img src="../../assets/Images/CR8.png" alt="Image 5" class="img-fluid" style="width: 100%;padding-left: 15px;margin-top: 7px;">
+                  </div>
+  
+      <div class="col-8" style="padding-left: 15px;width: 270px;">
+                      <img src="../../assets/Images/CR9.png" alt="Image 5" class="img-fluid" style="width: 100%;margin-top: 7px;">
+                  </div>
+              </div>
+          </div> 
+      </div>
+    </div>
+    </div>
+    <div id="carouselcleanroomIndicators" style="width:100%;" class="carousel slide d-md-none" data-bs-ride="carousel">
+      <div class="carousel-inner mt-3" style="height: 200px;">
+        <div class="carousel-item active">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR1.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR2.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR3.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR4.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR5.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR6.png"></p>
+        </div>
+        <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR7.png"></p>
+        </div>
+         <div class="carousel-item">
+          <p class="worksteptext"><img class="cauro-img" src="../../assets/Images/COL-CR8.png"></p>
+        </div>
+      </div>
+      <button  class="carousel-control-prev" type="button" data-bs-target="#carouselcleanroomIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button  class="carousel-control-next" type="button" data-bs-target="#carouselcleanroomIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div> 
+
+
+

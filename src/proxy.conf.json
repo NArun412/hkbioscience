@@ -1,0 +1,8 @@
+{
+    "/HKFiles/*": {
+      "target": "http://localhost/HKFiles",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
+  
