@@ -31,6 +31,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { BusinessFormComponent } from './business-form/business-form.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -52,7 +53,7 @@ export function tokenGetter() {
     AddProductComponent,
     ProductViewComponent,
     CreateAccountComponent,
-    
+    BusinessFormComponent
   ],
   imports: [
     BrowserModule,
