@@ -23,6 +23,14 @@ export class BusinessFormComponent implements OnInit {
     image: `https://picsum.photos/300/200?random=${i + 1}`
   }));
 
+  selectedCardIndex: number | null = null;
+  selectedCard: any = null;
+
+  selectCard(card: any, index: number): void {
+  this.selectedCard = card;
+  this.selectedCardIndex = index;
+  }
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

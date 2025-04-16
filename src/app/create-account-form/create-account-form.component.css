@@ -1,0 +1,20 @@
+.btn-orange,
+.btn-existing {
+  width: auto;
+  min-width: 210px;
+  background-color: #ED4D1A;
+  color: white;
+  border: 1px solid #ED4D1A;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.btn-orange:hover,
+.btn-existing:hover {
+  background-color: #d84315;
+  border-color: #d84315;
+}
+
+  
