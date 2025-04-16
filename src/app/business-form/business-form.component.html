@@ -2,7 +2,7 @@
     <form [formGroup]="Business_Form" class="w-100" style="max-width: 1200px;">
       
 
-      <div class="row mb-4">
+      <div class="row mb-4 justify-content-start">
         <div class="col-12 col-md-6">
           <label for="country" class="form-label">Select Country</label>
           <select id="country" class="form-select" formControlName="country">
@@ -18,7 +18,7 @@
         <label class="form-label">Business Type</label>
       </div>
   
-      <div class="row g-4 justify-content-start">
+      <!-- <div class="row g-4 justify-content-start">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of cards">
           <div class="card h-100 shadow-sm custom-card">
             <img [src]="card.image" class="card-img-top custom-img" alt="Card image" />
@@ -28,8 +28,65 @@
             </div>
           </div>
         </div>
+      </div> -->
+
+      <!-- <div class="row g-4 justify-content-start">
+        <div 
+          class="col-12 col-sm-6 col-md-4 col-lg-3" 
+          *ngFor="let card of cards; let i = index"
+        >
+          <label [for]="'cardOption' + i" class="card h-100 shadow-sm custom-card" 
+                 [class.selected-card]="selectedCardIndex === i">
+            <input 
+              type="radio" 
+              class="d-none" 
+              name="cardOption" 
+              [id]="'cardOption' + i"
+              [value]="card"
+              (change)="selectCard(card, i)"
+            />
+            <img [src]="card.image" class="card-img-top custom-img" alt="Card image" />
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.description }}</p>
+            </div>
+          </label>
+        </div>
+      </div> -->
+
+      <div class="row g-4 justify-content-start">
+        <div 
+          class="col-12 col-sm-6 col-md-4 col-lg-3" 
+          *ngFor="let card of cards; let i = index"
+        >
+          <label [for]="'cardOption' + i" 
+                 class="card h-100 shadow-sm custom-card" 
+                 [class.selected-card]="selectedCardIndex === i">
+            <input 
+              type="radio" 
+              class="d-none" 
+              name="cardOption" 
+              [id]="'cardOption' + i"
+              [value]="card"
+              (change)="selectCard(card, i)"
+            />
+            <img [src]="card.image" class="card-img-top custom-img" alt="Card image" />
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.description }}</p>
+            </div>
+          </label>
+        </div>
       </div>
-  
+      
+      
+
+      <div class="row mt-5 justify-content-center align-items-center">
+        <div class="row justify-content-center">
+            <button class="btn btn-orange" routerLink="/CreateAccountForm">Next</button>
+        </div>
+      </div>
+    
     </form>
   </div>
 
