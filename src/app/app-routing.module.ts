@@ -11,6 +11,7 @@ import {BotTrainComponent} from './bot-train/bot-train.component';
 import { ContactComponent } from './Contact/contact.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 import { BusinessFormComponent } from './business-form/business-form.component';
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
     path: 'Dashboard',
     component: DashboardComponent,
     data: { pageName: 'Home' }
+  },
+   {
+    path: 'CreateAccount',
+    component: CreateAccountComponent,
+    data: { pageName: 'Create Account' }
   },
   {
     path: 'Product',

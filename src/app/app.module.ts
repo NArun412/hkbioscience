@@ -30,6 +30,7 @@ import { ChatBotPopupComponent } from './common/modal/chat-bot-popup/chat-bot-po
 import { JwtModule } from '@auth0/angular-jwt';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 import { BusinessFormComponent } from './business-form/business-form.component';
 
 export function tokenGetter() { 
@@ -51,6 +52,7 @@ export function tokenGetter() {
     ChatBotPopupComponent,
     AddProductComponent,
     ProductViewComponent,
+    CreateAccountComponent,
     BusinessFormComponent
   ],
   imports: [
