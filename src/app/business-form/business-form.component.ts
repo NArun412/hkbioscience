@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+
+@Component({
+  selector: 'app-business-form',
+  templateUrl: './business-form.component.html',
+  styleUrls: ['./business-form.component.css']
+})
+export class BusinessFormComponent implements OnInit {
+
+  Business_Form!: FormGroup;
+  countries = [
+    { code: 'US', name: 'United States' },
+    { code: 'IN', name: 'India' },
+    { code: 'GB', name: 'United Kingdom' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'AU', name: 'Australia' }
+  ];
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.Business_Form = this.fb.group({
+      country: ['']
+    });
+  }
+
+}

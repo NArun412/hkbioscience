@@ -1,0 +1,14 @@
+<form [formGroup]="Business_Form">
+    <div>
+      <label for="country">Select Country</label><br>
+      <select id="country" formControlName="country">
+        <option value="">-- Select a Country --</option>
+        <option *ngFor="let country of countries" [value]="country.code">
+          {{ country.name }}
+        </option>
+      </select>
+    </div>
+  </form>
+  
+  <!-- <p>Selected: {{ Business_Form.value.country }}</p> -->
+  
