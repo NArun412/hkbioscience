@@ -17,6 +17,12 @@ export class BusinessFormComponent implements OnInit {
     { code: 'AU', name: 'Australia' }
   ];
 
+  cards = Array.from({ length: 10 }, (_, i) => ({
+    title: `Card ${i + 1}`,
+    description: 'This is a description for the card.',
+    image: `https://picsum.photos/300/200?random=${i + 1}`
+  }));
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
