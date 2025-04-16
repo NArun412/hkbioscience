@@ -13,6 +13,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BusinessFormComponent } from './business-form/business-form.component';
+import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 const routes: Routes = [
   {
     path: '',
@@ -80,6 +81,11 @@ const routes: Routes = [
     path: 'BusinessForm',
     component: BusinessFormComponent,
     data: { pageName: 'Business Form' }
+  },
+  {
+    path: 'CreateAccountForm',
+    component: CreateAccountFormComponent,
+    data: { pageName: 'Create Account Form' }
   },
 ];
 

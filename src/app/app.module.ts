@@ -33,6 +33,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BusinessFormComponent } from './business-form/business-form.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -55,7 +56,8 @@ export function tokenGetter() {
     ProductViewComponent,
     CreateAccountComponent,
     BusinessFormComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    CreateAccountFormComponent
   ],
   imports: [
     BrowserModule,
