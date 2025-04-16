@@ -15,6 +15,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { BusinessFormComponent } from './business-form/business-form.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 const routes: Routes = [
   {
     path: '',
@@ -94,6 +95,11 @@ const routes: Routes = [
     data: { pageName: 'Thank You' }
   },
 
+  {
+    path: 'CreateAccountForm',
+    component: CreateAccountFormComponent,
+    data: { pageName: 'Create Account Form' }
+  },
 ];
 
 
