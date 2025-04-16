@@ -1,0 +1,41 @@
+.custom-box {
+  padding: 15px 15px;
+  margin-top: 50px;
+  background-color: #FEFEFF;
+  border: 1px solid #FEFEFF;
+}
+
+.account {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+.custom-message {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  color: #7A7A79;
+  margin-bottom: 15px;
+}
+
+.btn-orange,
+.btn-existing {
+  width: auto;
+  min-width: 210px;
+  background-color: #ED4D1A;
+  color: white;
+  border: 1px solid #ED4D1A;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.btn-orange:hover,
+.btn-existing:hover {
+  background-color: #d84315;
+  border-color: #d84315;
+}
