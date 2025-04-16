@@ -1,0 +1,122 @@
+/* card-list.component.css */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(20% - 10px); /* 4 per row on desktop */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  /* Responsive for tablet */
+  @media (max-width: 992px) {
+    .card {
+      width: calc(40% - 10px); /* 2 per row */
+    }
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* 1 per row */
+    }
+  }
+  
+  .form-select {
+    min-height: 38px;
+    font-size: 1rem;
+  }
+
+
+  /*  */
+
+  .card-img-top {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  
+  .custom-card {
+    width: 100%;
+    min-height: 250px;
+  }
+  
+  .custom-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .custom-img {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  
+  .card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  
+  .custom-img {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  
+  .card {
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    border: 2px solid transparent;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+  .selected-card {
+    border-color: #0d6efd; /* Bootstrap primary */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+  
+  
