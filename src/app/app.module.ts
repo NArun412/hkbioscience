@@ -59,8 +59,7 @@ export function tokenGetter() {
     CreateAccountComponent,
     BusinessFormComponent,
     VerifyEmailComponent,
-    ThankYouComponent
-    VerifyEmailComponent,
+    ThankYouComponent,
     CreateAccountFormComponent
   ],
   imports: [
