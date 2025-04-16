@@ -13,6 +13,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BusinessFormComponent } from './business-form/business-form.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 const routes: Routes = [
   {
     path: '',
@@ -81,6 +83,17 @@ const routes: Routes = [
     component: BusinessFormComponent,
     data: { pageName: 'Business Form' }
   },
+  {
+    path: 'VerifyEmail',
+    component: VerifyEmailComponent,
+    data: { pageName: 'Verify Email' }
+  },
+  {
+    path: 'ThankYou',
+    component: ThankYouComponent,
+    data: { pageName: 'Thank You' }
+  },
+
 ];
 
 
