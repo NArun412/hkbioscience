@@ -36,6 +36,12 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
+import { StepperComponent } from './stepper/stepper.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -60,9 +66,15 @@ export function tokenGetter() {
     BusinessFormComponent,
     VerifyEmailComponent,
     ThankYouComponent,
-    CreateAccountFormComponent
+    CreateAccountFormComponent,
+    StepperComponent
   ],
   imports: [
+    MatStepperModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

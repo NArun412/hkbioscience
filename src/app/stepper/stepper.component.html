@@ -1,0 +1,91 @@
+<div class="container py-4 d-flex justify-content-center">
+    <form [formGroup]="Business_Form" class="w-100" style="max-width: 1200px;">
+      <mat-horizontal-stepper [linear]="true" #stepper>
+        <!-- Step 1 -->
+        <mat-step [stepControl]="Business_Form">
+          <form [formGroup]="Business_Form">
+            <ng-template matStepLabel>Business Details</ng-template>
+  
+            <div class="row mb-4 justify-content-start">
+              <div class="col-12 col-md-6">
+                <label for="country" class="form-label">Select Country</label>
+                <select id="country" class="form-select" formControlName="country">
+                  <option value="">-- Select a Country --</option>
+                  <option *ngFor="let country of countries" [value]="country.code">
+                    {{ country.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="mb-2">
+              <label class="form-label">Business Type</label>
+            </div>
+  
+            <div class="row g-4 justify-content-start">
+              <div 
+                class="col-12 col-sm-6 col-md-4 col-lg-3" 
+                *ngFor="let card of cards; let i = index"
+              >
+                <label [for]="'cardOption' + i" 
+                       class="card h-100 shadow-sm custom-card" 
+                       [class.selected-card]="selectedCardIndex === i">
+                  <input 
+                    type="radio" 
+                    class="d-none" 
+                    name="cardOption" 
+                    [id]="'cardOption' + i"
+                    [value]="card"
+                    (change)="selectCard(card, i)"
+                  />
+                  <img [src]="card.image" class="card-img-top custom-img" alt="Card image" />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ card.title }}</h5>
+                    <p class="card-text">{{ card.description }}</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+  
+            <div class="row mt-5 justify-content-center align-items-center">
+              <div class="row justify-content-center">
+                <button mat-button class="orange-btn" matStepperNext>Next</button>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Step 2 -->
+        <mat-step>
+          <ng-template matStepLabel>Step 2</ng-template>
+          <p>Second step content goes here...</p>
+          <div class="text-center mt-4">
+            <button mat-button class="orange-btn" matStepperPrevious>Back</button>
+            <button mat-button class="orange-btn" matStepperNext>Next</button>
+          </div>
+        </mat-step>
+  
+        <!-- Step 3 -->
+        <mat-step>
+          <ng-template matStepLabel>Step 3</ng-template>
+          <p>Third step content goes here...</p>
+          <app-business-form></app-business-form>
+          <div class="text-center mt-4">
+            <button mat-button class="orange-btn" matStepperPrevious>Back</button>
+            <button mat-button class="orange-btn" matStepperNext>Next</button>
+          </div>
+        </mat-step>
+  
+        <!-- Final Step -->
+        <mat-step>
+          <ng-template matStepLabel>Finish</ng-template>
+          <p>Review & Submit</p>
+          <div class="text-center mt-4">
+            <button mat-button class="orange-btn" matStepperPrevious>Back</button>
+            <button mat-button class="orange-btn" (click)="submit()">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </form>
+  </div>
+  

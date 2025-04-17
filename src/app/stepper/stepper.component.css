@@ -1,0 +1,61 @@
+/* Stepper Header Background */
+::ng-deep .mat-step-header {
+    background-color: #ED4D1A;
+    color: white;
+    border-radius: 6px;
+    margin: 4px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Step Icon (number circle) */
+  ::ng-deep .mat-step-icon {
+    background-color: white;
+    color: #ED4D1A;
+    font-weight: bold;
+  }
+  
+  /* Active Step Icon */
+  ::ng-deep .mat-step-header.mat-active .mat-step-icon {
+    background-color: #ED4D1A;
+    color: white;
+  }
+  
+  /* Active Step Label Text */
+  ::ng-deep .mat-step-header.mat-active .mat-step-label {
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Hover Effect on Step Header */
+  ::ng-deep .mat-step-header:hover {
+    background-color: #e0481a;
+  }
+  
+  /* Stepper Content Container */
+  .stepper-container {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Button Styling */
+  .orange-btn {
+    background-color: #ED4D1A;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .orange-btn:hover {
+    background-color: #d84315;
+  }
+  
