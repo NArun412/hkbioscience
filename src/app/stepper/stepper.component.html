@@ -6,7 +6,7 @@
 <div class="container py-4 d-flex justify-content-center custom-stepper-wrapper p-3 rounded">
   <form [formGroup]="Business_Form" class="w-100" style="max-width: 1200px;">
     <h2 class="text-center">Create Account</h2>
-    <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-horizontal-stepper class="stepper-horizontal" [linear]="true" #stepper>
       <!-- Step 1 -->
        
       <mat-step [stepControl]="Business_Form">
@@ -67,6 +67,12 @@
         <ng-template matStepLabel>Step 2</ng-template>
         <p>Second step content goes here...</p>
         <div class="text-center mt-4">
+          <div class="row mt-5 justify-content-center align-items-center">
+            <div class="row justify-content-center">
+              <button mat-button class="orange-btn" matStepperPrevious>Back</button>
+              <button mat-button class="orange-btn" matStepperNext>Next</button>
+            </div>
+          </div>
           <button mat-button class="orange-btn" matStepperPrevious>Back</button>
           <button mat-button class="orange-btn" matStepperNext>Next</button>
         </div>

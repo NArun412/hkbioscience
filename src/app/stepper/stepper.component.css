@@ -1,60 +1,97 @@
-/* STEP HEADER BACKGROUND - full orange bar */
+/* === Stepper Container === */
 ::ng-deep .mat-horizontal-stepper-header-container {
-  background-color: #ED4D1A;
-  padding: 10px 0;
-  border-radius: 6px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* INDIVIDUAL STEP HEADERS (label + icon) */
+/* === Step Header === */
 ::ng-deep .mat-step-header {
-  color: white;
-  border-radius: 4px;
-  padding: 8px 16px;
-  margin: 0 8px;
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 180px;
 }
 
-/* ACTIVE STEP ICON */
-::ng-deep .mat-step-header.mat-active .mat-step-icon {
-  background-color: white;
-  color: #ED4D1A;
-  font-weight: bold;
+/* === Hover === */
+::ng-deep .mat-step-header:hover {
+  background-color: #fff5f0;
+  border-color: #ED4D1A;
 }
 
-/* INACTIVE STEP ICON */
-::ng-deep .mat-step-icon {
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
+/* === Active === */
+::ng-deep .mat-step-header.mat-active {
+  background-color: #ED4D1A;
+  border-color: #ED4D1A;
+  box-shadow: 0 0 10px rgba(237, 77, 26, 0.3);
 }
 
-/* COMPLETED ICON */
-::ng-deep .mat-step-header.mat-completed .mat-step-icon {
-  background-color: white;
-  color: #ED4D1A;
-}
-
-/* STEP LABEL (text beside icon) */
-::ng-deep .mat-step-label {
-  color: white;
-  font-weight: 500;
-}
-
-/* ACTIVE STEP TEXT */
 ::ng-deep .mat-step-header.mat-active .mat-step-label {
-  color: white;
+  color: #fff;
   font-weight: bold;
 }
 
-/* CONTENT AREA WHITE BACKGROUND */
-::ng-deep .mat-horizontal-content-container {
-  background-color: white;
-  padding: 32px;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+/* === Step Labels === */
+::ng-deep .mat-step-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
 }
-.custom-stepper-wrapper {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+/* === Step Icons === */
+::ng-deep .mat-step-icon {
+  background-color: #fff;
+  color: #ED4D1A;
+  border: 2px solid #ED4D1A;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+/* === Highlighted Step Icons === */
+::ng-deep .mat-step-header .mat-step-icon-selected,
+::ng-deep .mat-step-header .mat-step-icon-state-done,
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #ED4D1A;
+  color: #fff;
+}
+
+/* === Stepper Line === */
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #ED4D1A !important;
+  transition: border-color 0.3s ease;
+}
+
+/* === Completed === */
+::ng-deep .mat-step-header.mat-completed {
+  background-color: #fff;
+  border: 2px solid #ED4D1A;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  ::ng-deep .mat-step-header {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  ::ng-deep .mat-step-label {
+    font-size: 0.95rem;
+  }
 }
