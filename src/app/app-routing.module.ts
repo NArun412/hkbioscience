@@ -17,6 +17,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 import { BannerComponent } from './banner/banner.component';
+import { StepperComponent } from './stepper/stepper.component';
 const routes: Routes = [
   {
     path: '',
@@ -94,11 +95,17 @@ const routes: Routes = [
     path: 'ThankYou',
     component: ThankYouComponent,
     data: { pageName: 'Thank You' }
-  },
+  }, 
   {
     path: 'CreateAccountForm',
     component: CreateAccountFormComponent,
     data: { pageName: 'Create Account Form' }
+  },
+
+  {
+    path: 'Stepper',
+    component: StepperComponent,
+    data: { pageName: 'Stepper' }
   },
   {
     path: 'Banner',

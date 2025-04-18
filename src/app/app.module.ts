@@ -35,6 +35,12 @@ import { BusinessFormComponent } from './business-form/business-form.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
+import { StepperComponent } from './stepper/stepper.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
 
 export function tokenGetter() { 
@@ -61,9 +67,15 @@ export function tokenGetter() {
     VerifyEmailComponent,
     ThankYouComponent,
     CreateAccountFormComponent,
+    StepperComponent,
     BannerComponent
   ],
   imports: [
+    MatStepperModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
