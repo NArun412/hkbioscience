@@ -168,3 +168,32 @@
   color: #ED4D1A !important;
   transition: all 0.3s ease;
 }
+
+::ng-deep .mat-step-header:not(:focus) .mat-step-icon {
+  color: #ED4D1A !important;
+}
+
+/* New rule for when step is selected but not focused */
+::ng-deep .mat-step-header.mat-selected:not(:focus) .mat-step-icon {
+  color: #fff !important;
+}
+
+::ng-deep .mat-step-icon-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  color: #ED4D1A !important;
+}
+
+::ng-deep .ng-star-inserted {
+  color: #ED4D1A !important;
+}
+
+::ng-deep [ng-reflect-ng-switch="false"],
+::ng-deep .ng-star-inserted[ng-reflect-ng-switch="false"],
+::ng-deep .ng-star-inserted[ng-reflect-ng-switch="false"].mat-step-icon-selected {
+  color: #fff !important;
+}
+
