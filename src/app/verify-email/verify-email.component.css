@@ -10,3 +10,64 @@
   font-weight: 500;
   white-space: nowrap;
 }
+.email-page-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2px 20px;
+  text-align: center;
+}
+
+.email-container {
+  margin-bottom: 20px;
+}
+
+.check-email-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+/* .check-email-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 0; 
+} */
+
+.confirmation-container {
+  margin-bottom: 30px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.email-confirmation-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 24px 0 16px 0; */
+  margin: 55px 0 50px 0;
+}
+.panel-img {
+  width: 85px;
+  height: 79px;
+  object-fit: cover;
+  margin-bottom: 10px;
+
+}
+
+
