@@ -16,56 +16,56 @@
   padding: 12px 20px;
   min-width: 180px;
   border-radius: 8px;
-  background-color: #ED4D1A;
-  border: 2px solid transparent;
+  border: 2px solid #ED4D1A;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #ED4D1A;
+  background-color: transparent;
+}
+
+::ng-deep .mat-step-header.mat-active,
+::ng-deep .mat-step-header.mat-selected {
+  background-color: #ED4D1A !important;
+  border-color: #ED4D1A;
+  box-shadow: 0 0 10px rgba(237, 77, 26, 0.3);
+}
+
+::ng-deep .mat-step-header.mat-completed {
+  background-color: #fff;
+  border-color: #ED4D1A;
+}
+
+::ng-deep .mat-step-header:hover {
+  background-color: #fff5f0;
+  border-color: #ED4D1A;
+}
+
+::ng-deep .mat-step-header:hover .mat-step-icon {
+  color: #ED4D1A;
+  background-color: #fff;
+  border-color: #ED4D1A;
+}
+
+::ng-deep .mat-step-header:hover .mat-step-text-label {
+  color: #ED4D1A;
+  background-color: rgba(237, 77, 26, 0.05);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 600;
+}
+
+::ng-deep .mat-step-header.mat-active .mat-step-icon,
+::ng-deep .mat-step-header.mat-selected .mat-step-icon {
+  background-color: #fff;
+  color: #ED4D1A;
+  border-color: #fff;
+}
+
+::ng-deep .mat-step-header.mat-active .mat-step-text-label,
+::ng-deep .mat-step-header.mat-selected .mat-step-text-label {
   color: #fff;
-
-  &.mat-active,
-  &.mat-selected {
-    background-color: #ED4D1A !important;
-    border-color: #ED4D1A;
-    box-shadow: 0 0 10px rgba(237, 77, 26, 0.3);
-  }
-
-  &.mat-completed {
-    background-color: #fff;
-    border-color: #ED4D1A;
-  }
-
-  &:hover {
-    background-color: #fff5f0;
-    border-color: #ED4D1A;
-
-    .mat-step-icon {
-      color: #ED4D1A;
-      background-color: #fff;
-      border-color: #ED4D1A;
-    }
-
-    .mat-step-text-label {
-      color: #ED4D1A;
-      background-color: rgba(237, 77, 26, 0.05);
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-weight: 600;
-    }
-  }
-
-  &.mat-active .mat-step-icon,
-  &.mat-selected .mat-step-icon {
-    background-color: #fff;
-    color: #ED4D1A;
-    border-color: #fff;
-  }
-
-  &.mat-active .mat-step-text-label,
-  &.mat-selected .mat-step-text-label {
-    color: #fff;
-    background-color: transparent;
-    font-weight: 600;
-  }
+  background-color: transparent;
+  font-weight: 600;
 }
 
 ::ng-deep .mat-step-icon {
@@ -80,20 +80,20 @@
   background-color: #fff;
   color: #ED4D1A;
   border: 2px solid #ED4D1A;
+}
 
-  &.mat-step-icon-state-done,
-  &.mat-step-icon-selected {
-    background-color: #ED4D1A;
-    color: #fff;
-  }
+::ng-deep .mat-step-icon.mat-step-icon-state-done,
+::ng-deep .mat-step-icon.mat-step-icon-selected {
+  background-color: #ED4D1A;
+  color: #fff;
+}
 
-  &.mat-step-icon-state-edit {
-    display: none !important;
-  }
+::ng-deep .mat-step-icon.mat-step-icon-state-edit {
+  display: none !important;
+}
 
-  &.mat-step-icon-state-number {
-    display: flex !important;
-  }
+::ng-deep .mat-step-icon.mat-step-icon-state-number {
+  display: flex !important;
 }
 
 ::ng-deep .mat-step-text-label {
@@ -120,7 +120,6 @@
   transition: all 0.3s ease;
 }
 
-
 ::ng-deep .mat-horizontal-stepper {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -143,3 +142,29 @@
   }
 }
 
+::ng-deep .mat-step-header:focus,
+::ng-deep .mat-step-header:focus-visible {
+  background-color: #ED4D1A !important;
+  outline: none;
+}
+
+::ng-deep .mat-step-header:focus .mat-step-icon.mat-step-icon-state-done,
+::ng-deep .mat-step-header:focus .mat-step-icon.mat-step-icon-selected {
+  background-color: #fff !important;
+  color: #ED4D1A !important;
+}
+
+::ng-deep .mat-step-header:focus .mat-step-text-label {
+  color: #fff !important;
+}
+
+::ng-deep .mat-step-header:not(:focus) .mat-step-icon {
+  color: #ED4D1A !important;
+}
+
+::ng-deep .mat-step-header:not(:focus) .mat-step-text-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ED4D1A !important;
+  transition: all 0.3s ease;
+}
