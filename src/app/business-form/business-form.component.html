@@ -12,6 +12,9 @@
             </option>
           </select>
         </div>
+        <div *ngIf="Business_Form.get('country')?.invalid && Business_Form.get('country')?.touched" class="error-msg text-danger mt-1">
+          Country is required.
+        </div>
       </div>
 
       <div class="mb-2">
@@ -78,17 +81,20 @@
           </label>
         </div>
       </div>
+      <div *ngIf="Business_Form.get('selectedCard')?.invalid && Business_Form.get('selectedCard')?.touched" class="text-danger mt-2">
+        Please select a business type.
+      </div>
       
       
 
       <div class="row mt-5 justify-content-center align-items-center">
         <div class="row justify-content-center">
-            <button class="btn btn-orange" routerLink="/CreateAccountForm">Next</button>
+            <button class="btn btn-orange" (click)="onNext()">Next</button>
         </div>
       </div>
     
     </form>
   </div>
 
-  
+  <!-- routerLink="/CreateAccountForm" -->
   

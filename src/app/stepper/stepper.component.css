@@ -197,3 +197,14 @@
   color: #fff !important;
 }
 
+.submit-btn {
+  background-color: #ed4d1a;
+  color: #fff;
+  border: none;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+}
