@@ -110,4 +110,13 @@
     padding: 4px 8px;
     border-radius: 12px;
   }
+
+  .selected-card {
+    border: 2px solid #ED4D1A;
+  }
+  
+  .custom-card.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+  
   

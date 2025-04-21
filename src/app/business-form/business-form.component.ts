@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-business-form',
@@ -27,16 +29,41 @@ export class BusinessFormComponent implements OnInit {
   selectedCard: any = null;
 
   selectCard(card: any, index: number): void {
-  this.selectedCard = card;
-  this.selectedCardIndex = index;
+    this.selectedCard = card;
+    this.selectedCardIndex = index;
+    this.Business_Form.patchValue({ selectedCard: card });
   }
+  
+  // selectCard(card: any, index: number): void {
+  // this.selectedCard = card;
+  // this.selectedCardIndex = index;
+  // }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.Business_Form = this.fb.group({
-      country: ['']
+      country: ['', Validators.required],
+      selectedCard: [null, Validators.required]  // ← Add this
     });
   }
+
+  onNext(): void {
+    if (this.Business_Form.valid) {
+      // Replace with router navigation if needed
+      console.log('Form Data:', this.Business_Form.value);
+      // Example navigation:
+      this.router.navigate(['/CreateAccountForm']);
+    } else {
+      this.Business_Form.markAllAsTouched();
+    }
+  }
+  
+
+  // ngOnInit(): void {
+  //   this.Business_Form = this.fb.group({
+  //     country: ['']
+  //   });
+  // }
 
 }

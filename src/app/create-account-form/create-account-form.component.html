@@ -1,5 +1,89 @@
 <div class="form-container">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>My company name*</label>
+      <input type="text" formControlName="companyName" />
+      <div *ngIf="form.get('companyName')?.invalid && (submitted || form.get('companyName')?.touched)"
+        class="error-msg">
+        Company name is required.
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name*</label>
+        <input type="text" formControlName="firstName" />
+        <div *ngIf="form.get('firstName')?.invalid && (submitted || form.get('firstName')?.touched)" class="error-msg">
+          First name is required.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Last Name*</label>
+        <input type="text" formControlName="lastName" />
+        <div *ngIf="form.get('lastName')?.invalid && (submitted || form.get('lastName')?.touched)" class="error-msg">
+          Last name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Phone number*</label>
+      <input type="text" formControlName="phone" />
+      <div *ngIf="form.get('phone')?.invalid && (submitted || form.get('phone')?.touched)" class="error-msg">
+        <ng-container *ngIf="form.get('phone')?.errors?.['required']">
+          Phone number is required.
+        </ng-container>
+        <ng-container *ngIf="form.get('phone')?.errors?.['pattern']">
+          Please enter a valid 10-digit phone number.
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email address*</label>
+      <input type="email" formControlName="email" />
+      <div *ngIf="form.get('email')?.invalid && (submitted || form.get('email')?.touched)" class="error-msg">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password*</label>
+      <input type="password" formControlName="password" />
+      <div *ngIf="form.get('password')?.invalid && (submitted || form.get('password')?.touched)" class="error-msg">
+        Password is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password*</label>
+      <input type="password" formControlName="confirmPassword" />
+      <div *ngIf="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched" class="error-msg">
+        Confirm Password is required.
+      </div>
+      <div *ngIf="form.errors?.['passwordMismatch'] && form.get('confirmPassword')?.touched" class="error-msg">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <span> <input type="checkbox" formControlName="agreeTerms" />
+        <label>I have read and agree to the Terms & Conditions</label></span>
+      <div *ngIf="form.get('agreeTerms')?.invalid && (submitted || form.get('agreeTerms')?.touched)" class="error-msg">
+        You must agree to the terms.
+      </div>
+    </div>
+ 
+    <div class="form-group checkbox-group">
+        <label>I'd like to receive electronic communications.</label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>My company name*</label>
         <input type="text" formControlName="companyName" />
@@ -18,13 +102,20 @@
   
       <div class="form-group">
         <label>Phone number*</label>
-        <input type="text" formControlName="phone" [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched" />
+        <input type="text" formControlName="phone" [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched" class="error-msg" />
+        <div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched" class="error-msg">
+          Please enter a valid email.
+        </div>
       </div>
   
       <div class="form-group">
         <label>Email address*</label>
         <input type="email" formControlName="email" />
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error-msg">
+          Please enter a valid email.
+        </div>
       </div>
+      
   
       <div class="form-group">
         <label>Password*</label>
@@ -46,9 +137,9 @@
       </div>
   
       <button type="submit" class="submit-btn" [disabled]="form.invalid">Submit</button>
-    </form>
+    </form> -->
 </div>
-  
+
 
 <!-- <div class="row mt-5 justify-content-center align-items-center">
     <div class="row justify-content-center">
