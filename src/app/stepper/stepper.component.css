@@ -194,3 +194,63 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 }
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 40px;
+  background: #fff;
+  white-space: nowrap;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  display: flex;
+  height: 50px !important;
+  overflow: hidden;
+  align-items: center;
+  padding: 0 24px;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  padding: 0px 50px !important;
+  overflow: visible !important;
+  background-color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 40px 100px 40px 100px;
+  background: #fff;
+  white-space: nowrap;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  display: flex;
+  height: 34px !important;
+  overflow: hidden;
+  align-items: center;
+  padding: 0 24px;
+}
+
+::ng-deep .mat-step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  min-width: 100px !important;
+  border-radius: 8px;
+  border: 2px solid #ED4D1A;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ED4D1A;
+  background-color: transparent;
+}
+
