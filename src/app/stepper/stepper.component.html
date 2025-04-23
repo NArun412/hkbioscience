@@ -1,18 +1,14 @@
-
-
-
-   
-
 <div class="container py-4 d-flex justify-content-center custom-stepper-wrapper p-3 rounded">
   <form [formGroup]="Business_Form" class="w-100" style="max-width: 1200px;">
     <h2 class="text-center">Create Account</h2>
+
     <mat-horizontal-stepper class="stepper-horizontal" [linear]="true" #stepper>
-      <!-- Step 1 -->
-       
+      
       <mat-step [stepControl]="Business_Form">
         <form [formGroup]="Business_Form">
-          <ng-template matStepLabel>Business Details</ng-template>
+          <ng-template matStepLabel>Business Information</ng-template>
 
+          <!-- Country Selection -->
           <div class="row mb-4 justify-content-start">
             <div class="col-12 col-md-6">
               <label for="country" class="form-label">Select Country</label>
@@ -25,18 +21,21 @@
             </div>
           </div>
 
+          <!-- Business Type -->
           <div class="mb-2">
             <label class="form-label">Business Type</label>
           </div>
 
           <div class="row g-4 justify-content-start">
             <div 
-              class="col-12 col-sm-6 col-md-4 col-lg-3" 
               *ngFor="let card of cards; let i = index"
+              class="col-12 col-sm-6 col-md-4 col-lg-3"
             >
-              <label [for]="'cardOption' + i" 
-                     class="card h-100 shadow-sm custom-card" 
-                     [class.selected-card]="selectedCardIndex === i">
+              <label 
+                [for]="'cardOption' + i" 
+                class="card h-100 shadow-sm custom-card" 
+                [class.selected-card]="selectedCardIndex === i"
+              >
                 <input 
                   type="radio" 
                   class="d-none" 
@@ -54,6 +53,7 @@
             </div>
           </div>
 
+          <!-- Navigation -->
           <div class="row mt-5 justify-content-center align-items-center">
             <div class="row justify-content-center">
               <button mat-button class="submit-btn" matStepperNext>Next</button>
@@ -64,39 +64,22 @@
 
       <!-- Step 2 -->
       <mat-step>
-        <ng-template matStepLabel>Step 2</ng-template>
+        <ng-template matStepLabel>Personal Information</ng-template>
         <app-create-account-form></app-create-account-form>
-        <!-- <div class="text-center mt-4">
-          <div class="row mt-5 justify-content-center align-items-center">
-            <div class="row justify-content-center">
-              <button mat-button class="orange-btn" matStepperPrevious>Back</button>
-              <button mat-button class="orange-btn" matStepperNext>Next</button>
-            </div>
-          </div>
-          <button mat-button class="orange-btn" matStepperPrevious>Back</button>
-          <button mat-button class="orange-btn" matStepperNext>Next</button>
-        </div> -->
       </mat-step>
 
       <!-- Step 3 -->
       <mat-step>
-        <ng-template matStepLabel>Step 3</ng-template>
+        <ng-template matStepLabel>Verification</ng-template>
         <app-verify-email></app-verify-email>
-        <!-- <div class="text-center mt-4">
-          <button mat-button class="orange-btn" matStepperPrevious>Back</button>
-          <button mat-button class="orange-btn" matStepperNext>Next</button>
-        </div> -->
       </mat-step>
 
-      <!-- Final Step -->
+      <!-- Step 4 -->
       <mat-step>
-        <ng-template matStepLabel>Finish</ng-template>
+        <ng-template matStepLabel>Completion</ng-template>
         <app-thank-you></app-thank-you>
-        <!-- <div class="text-center mt-4">
-          <button mat-button class="orange-btn" matStepperPrevious>Back</button>
-          <button mat-button class="orange-btn" (click)="submit()">Submit</button>
-        </div> -->
       </mat-step>
+
     </mat-horizontal-stepper>
   </form>
 </div>
