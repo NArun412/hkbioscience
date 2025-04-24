@@ -18,6 +18,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 import { BannerComponent } from './banner/banner.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { TabbedComponent } from './tabbed/tabbed.component';
 const routes: Routes = [
   {
     path: '',
@@ -106,6 +107,11 @@ const routes: Routes = [
     path: 'Stepper',
     component: StepperComponent,
     data: { pageName: 'Stepper' }
+  },
+  {
+    path: 'Tabbed',
+    component: TabbedComponent,
+    data: { pageName: 'Tabbed' }
   },
   {
     path: 'Banner',

@@ -1,0 +1,112 @@
+/* General Reset & Base */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tab-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-tab-group {
+    width: 100%;
+  }
+  
+  .mat-tab-list {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+    overflow-x: auto;
+    flex-wrap: wrap;
+  }
+  
+  /* Tab Label Styling */
+  ::ng-deep .mat-tab-label {
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 0.6;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    color: #ED4D1A !important; /* Base color applied */
+    border: 2px solid #ED4D1A; /* Base color applied */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      opacity: 1;
+      background-color: #f9f9f9;
+    }
+  
+    &.mat-tab-label-active {
+      color: #fff;
+      background-color: #ED4D1A; /* Base color applied */
+      border: 2px solid #ED4D1A; /* Base color applied */
+    }
+  }
+  
+  /* Label Content Centering */
+  ::ng-deep .mat-tab-label .mat-tab-label-content {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  ::ng-deep .mat-ink-bar {
+    background-color: #ED4D1A !important; /* Base color applied */
+  }
+  
+  /* Hover effect for tab labels */
+  ::ng-deep .mat-tab-label:hover {
+    color: #ED4D1A; /* Base color applied */
+    background-color: #f9f9f9;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    ::ng-deep .mat-tab-label {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    ::ng-deep .tab-content {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    ::ng-deep .mat-tab-label {
+      font-size: 13px;
+      padding: 8px 10px;
+    }
+  }
+  
+  /* Center mat-tab-labels within the tab list */
+  ::ng-deep .mat-tab-labels {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  /* Custom Red color for mat-tab-label and mat-tab-link */
+  ::ng-deep .mat-tab-label, ::ng-deep .mat-tab-link {
+    color: #ED4D1A !important; /* Base color applied */
+  }
+  
