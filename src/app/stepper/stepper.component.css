@@ -4,9 +4,17 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 20px;
+  padding: 40px 100px;
   background: #fff;
   white-space: nowrap;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  display: flex;
+  height: 50px !important;
+  overflow: hidden;
+  align-items: center;
+  padding: 0 24px;
 }
 
 ::ng-deep .mat-step-header {
@@ -23,34 +31,18 @@
   background-color: transparent;
 }
 
-::ng-deep .mat-step-header.mat-active,
+/* Keep selected step visually highlighted */
 ::ng-deep .mat-step-header.mat-selected,
-::ng-deep .mat-step-header:focus,
-::ng-deep .mat-step-header:focus-visible {
+::ng-deep .mat-step-header.mat-active {
   background-color: #ED4D1A !important;
   border-color: #ED4D1A;
-}
-
-::ng-deep .mat-step-header.mat-active,
-::ng-deep .mat-step-header.mat-selected {
+  color: #fff !important;
   box-shadow: 0 0 10px rgba(237, 77, 26, 0.3);
 }
 
-::ng-deep .mat-step-header.mat-completed,
-::ng-deep .mat-step-header:hover {
-  background-color: #fff;
-  border-color: #ED4D1A;
-}
-
+/* On hover (optional enhancement) */
 ::ng-deep .mat-step-header:hover {
   background-color: #fff5f0;
-}
-
-::ng-deep .mat-step-header:hover .mat-step-icon,
-::ng-deep .mat-step-header:not(:focus) .mat-step-icon {
-  color: #ED4D1A !important;
-  background-color: #fff;
-  border-color: #ED4D1A;
 }
 
 ::ng-deep .mat-step-header:hover .mat-step-text-label {
@@ -61,34 +53,7 @@
   font-weight: 600;
 }
 
-::ng-deep .mat-step-header.mat-active .mat-step-icon,
-::ng-deep .mat-step-header.mat-selected .mat-step-icon,
-::ng-deep .mat-step-header:focus .mat-step-icon.mat-step-icon-state-done,
-::ng-deep .mat-step-header:focus .mat-step-icon.mat-step-icon-selected {
-  background-color: #fff !important;
-  color: #ED4D1A !important;
-  border-color: #fff;
-}
-
-::ng-deep .mat-step-header.mat-active .mat-step-text-label,
-::ng-deep .mat-step-header.mat-selected .mat-step-text-label,
-::ng-deep .mat-step-header:focus .mat-step-text-label {
-  color: #fff !important;
-  background-color: transparent;
-  font-weight: 600;
-}
-
-::ng-deep .mat-step-header:not(:focus) .mat-step-text-label {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #ED4D1A !important;
-  transition: all 0.3s ease;
-}
-
-::ng-deep .mat-step-header.mat-selected:not(:focus) .mat-step-icon {
-  color: #fff !important;
-}
-
+/* Step icon base style */
 ::ng-deep .mat-step-icon {
   width: 36px;
   height: 36px;
@@ -103,29 +68,26 @@
   border: 2px solid #ED4D1A;
 }
 
+/* Step icon when selected */
+::ng-deep .mat-step-header.mat-selected .mat-step-icon,
+::ng-deep .mat-step-header.mat-active .mat-step-icon {
+  background-color: #fff !important;
+  color: #ED4D1A !important;
+  border-color: #fff;
+}
+
 ::ng-deep .mat-step-icon.mat-step-icon-state-done,
 ::ng-deep .mat-step-icon.mat-step-icon-selected {
   background-color: #ED4D1A;
   color: #fff;
 }
 
+/* Hide edit icon if shown */
 ::ng-deep .mat-step-icon.mat-step-icon-state-edit {
   display: none !important;
 }
 
-::ng-deep .mat-step-icon.mat-step-icon-state-number {
-  display: flex !important;
-}
-
-::ng-deep .mat-step-icon-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  color: #ED4D1A !important;
-}
-
+/* Step label base */
 ::ng-deep .mat-step-text-label {
   font-size: 1rem;
   font-weight: 500;
@@ -133,18 +95,29 @@
   transition: all 0.3s ease;
 }
 
+/* Step label when selected */
+::ng-deep .mat-step-header.mat-selected .mat-step-text-label,
+::ng-deep .mat-step-header.mat-active .mat-step-text-label {
+  color: #fff !important;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+/* Horizontal line between steps */
 ::ng-deep .mat-stepper-horizontal-line {
   border-top: 2px solid #ED4D1A !important;
   transition: border-color 0.3s ease;
 }
 
+/* Stepper content container */
 ::ng-deep .mat-horizontal-content-container {
-  padding: 50px !important;
+  /* padding: 50px !important; */
   overflow: visible !important;
   background-color: #fff !important;
   transition: all 0.3s ease;
 }
 
+/* Stepper main container */
 ::ng-deep .mat-horizontal-stepper {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -157,16 +130,7 @@
   box-shadow: 4px 5px 6px 7px rgba(12, 19, 0, 0.08) !important;
 }
 
-::ng-deep .ng-star-inserted {
-  color: #ED4D1A !important;
-}
-
-::ng-deep [ng-reflect-ng-switch="false"],
-::ng-deep .ng-star-inserted[ng-reflect-ng-switch="false"],
-::ng-deep .ng-star-inserted[ng-reflect-ng-switch="false"].mat-step-icon-selected {
-  color: #fff !important;
-}
-
+/* Button styling */
 .submit-btn {
   background-color: #ED4D1A;
   color: #fff;
@@ -179,7 +143,7 @@
   width: 100%;
 }
 
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   ::ng-deep .mat-step-header {
     width: 100%;
@@ -194,63 +158,3 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 }
-
-::ng-deep .mat-horizontal-stepper-header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 40px;
-  background: #fff;
-  white-space: nowrap;
-}
-
-::ng-deep .mat-horizontal-stepper-header {
-  display: flex;
-  height: 50px !important;
-  overflow: hidden;
-  align-items: center;
-  padding: 0 24px;
-}
-
-::ng-deep .mat-horizontal-content-container {
-  padding: 0px 50px !important;
-  overflow: visible !important;
-  background-color: #fff !important;
-  transition: all 0.3s ease;
-}
-
-::ng-deep .mat-horizontal-stepper-header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 40px 100px 40px 100px;
-  background: #fff;
-  white-space: nowrap;
-}
-
-::ng-deep .mat-horizontal-stepper-header {
-  display: flex;
-  height: 34px !important;
-  overflow: hidden;
-  align-items: center;
-  padding: 0 24px;
-}
-
-::ng-deep .mat-step-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  min-width: 100px !important;
-  border-radius: 8px;
-  border: 2px solid #ED4D1A;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #ED4D1A;
-  background-color: transparent;
-}
-
