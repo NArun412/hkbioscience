@@ -158,3 +158,28 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 }
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 40px 70px;
+  background: #fff;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 10px !important;
+  overflow: hidden;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  padding: 0 120px 24px !important;
+  overflow: hidden;
+}
