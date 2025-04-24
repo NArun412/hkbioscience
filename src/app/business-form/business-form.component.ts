@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -33,12 +35,7 @@ export class BusinessFormComponent implements OnInit {
     this.selectedCardIndex = index;
     this.Business_Form.patchValue({ selectedCard: card });
   }
-  
-  // selectCard(card: any, index: number): void {
-  // this.selectedCard = card;
-  // this.selectedCardIndex = index;
-  // }
-
+ 
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
@@ -47,6 +44,22 @@ export class BusinessFormComponent implements OnInit {
       selectedCard: [null, Validators.required]  // ← Add this
     });
   }
+
+  // onNext(): void {
+  //   if (this.Business_Form.valid) {
+  //     console.log('Form Data:', this.Business_Form.value);
+  //     this.router.navigate(['/CreateAccountForm']);
+  //   } else {
+  //     this.Business_Form.markAllAsTouched();
+  
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Oops...',
+  //       text: 'Please fill out all required fields before proceeding!',
+  //       confirmButtonColor: '#ED4D1A'
+  //     });
+  //   }
+  // }
 
   onNext(): void {
     if (this.Business_Form.valid) {
@@ -59,11 +72,4 @@ export class BusinessFormComponent implements OnInit {
     }
   }
   
-
-  // ngOnInit(): void {
-  //   this.Business_Form = this.fb.group({
-  //     country: ['']
-  //   });
-  // }
-
 }
