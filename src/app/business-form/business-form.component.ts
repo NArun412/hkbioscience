@@ -45,31 +45,31 @@ export class BusinessFormComponent implements OnInit {
     });
   }
 
-  // onNext(): void {
-  //   if (this.Business_Form.valid) {
-  //     console.log('Form Data:', this.Business_Form.value);
-  //     this.router.navigate(['/CreateAccountForm']);
-  //   } else {
-  //     this.Business_Form.markAllAsTouched();
-  
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Oops...',
-  //       text: 'Please fill out all required fields before proceeding!',
-  //       confirmButtonColor: '#ED4D1A'
-  //     });
-  //   }
-  // }
-
   onNext(): void {
     if (this.Business_Form.valid) {
-      // Replace with router navigation if needed
       console.log('Form Data:', this.Business_Form.value);
-      // Example navigation:
       this.router.navigate(['/CreateAccountForm']);
     } else {
       this.Business_Form.markAllAsTouched();
+  
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill out all required fields before proceeding!',
+        confirmButtonColor: '#ED4D1A'
+      });
     }
   }
+
+  // onNext(): void {
+  //   if (this.Business_Form.valid) {
+  //     // Replace with router navigation if needed
+  //     console.log('Form Data:', this.Business_Form.value);
+  //     // Example navigation:
+  //     this.router.navigate(['/CreateAccountForm']);
+  //   } else {
+  //     this.Business_Form.markAllAsTouched();
+  //   }
+  // }
   
 }
