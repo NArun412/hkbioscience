@@ -1,14 +1,25 @@
 <div class="tab-wrapper">
-    <mat-tab-group [(selectedIndex)]="selectedTabIndex" class="tabbed-interface">
-      <mat-tab label="Personal Information">
-        <div class="tab-content"><app-business-form></app-business-form></div>
-      </mat-tab>
-      <mat-tab label="Personal Information">
-        <div class="tab-content"><app-create-account-form></app-create-account-form></div>
-      </mat-tab>
-      <mat-tab label="Review & Submit">
-        <div class="tab-content"><app-thank-you></app-thank-you></div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-  
+  <mat-tab-group [(selectedIndex)]="selectedTabIndex" class="tabbed-interface">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab-label-text">Personal Information</span>
+        <span class="tab-label-number">1</span>
+      </ng-template>
+      <div class="tab-content"><app-business-form></app-business-form></div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab-label-text">Account Info</span>
+        <span class="tab-label-number">2</span>
+      </ng-template>
+      <div class="tab-content"><app-create-account-form></app-create-account-form></div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab-label-text">Review & Submit</span>
+        <span class="tab-label-number">3</span>
+      </ng-template>
+      <div class="tab-content"><app-thank-you></app-thank-you></div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,126 +1,75 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7fa;
-    margin: 0;
-    padding: 0;
+::ng-deep .mat-tab-label .tab-label-text {
+  display: inline;
+}
+
+::ng-deep .mat-tab-label .tab-label-number {
+  display: none;
+}
+
+::ng-deep .mat-tab-label .tab-label-text {
+  display: inline;
+}
+
+::ng-deep .mat-tab-label .tab-label-number {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  ::ng-deep .mat-tab-label .tab-label-text {
+    display: none;
   }
-  
-  .tab-wrapper {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  ::ng-deep .mat-tab-label .tab-label-number {
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
   }
-  
-  .mat-tab-group {
-    width: 100%;
-  }
-  
-  .mat-tab-list {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    border-bottom: 2px solid #ddd;
-    overflow-x: auto;
-    flex-wrap: wrap;
-  }
-  
-  ::ng-deep .mat-tab-label {
-    height: 48px;
-    padding: 0 24px;
-    cursor: pointer;
-    box-sizing: border-box;
-    opacity: 0.6;
-    min-width: 160px;
-    text-align: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    position: relative;
-    color: #ED4D1A !important;
-    border: 2px solid #ED4D1A;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    margin-right: 10px;
-  }
-  
-  ::ng-deep .mat-tab-label .mat-tab-label-content {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    width: 100%;
-  }
-  
-  ::ng-deep .mat-tab-label, ::ng-deep .mat-tab-link {
-    color: #ED4D1A !important;
-  }
-  
-  ::ng-deep .mat-tab-label-active {
-    background-color: #ED4D1A;
-    border: 2px solid #ED4D1A;
-  }
-  
-  ::ng-deep .mat-tab-label-active .mat-tab-label-content {
-    color: #fff !important;
-  }
-  
-  ::ng-deep .mat-ink-bar {
-    background-color: #ED4D1A !important;
-  }
-  
-  ::ng-deep .mat-tab-label:hover {
-    color: #ED4D1A;
-    background-color: #f9f9f9;
-  }
-  
-  @media (max-width: 768px) {
-    ::ng-deep .mat-tab-label {
-      font-size: 14px;
-      padding: 10px;
-    }
-  
-    ::ng-deep .tab-content {
-      padding: 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    ::ng-deep .mat-tab-label {
-      font-size: 12px;
-      padding: 8px 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    ::ng-deep .mat-tab-label .mat-tab-label-content {
-      display: none; /* Hide the label text */
-    }
-  
-    ::ng-deep .mat-tab-label::before {
-      content: counter(tab-count);
-      font-size: 14px;
-      font-weight: bold;
-      margin-right: 5px;
-    }
-  
-    ::ng-deep .mat-tab-labels {
-      counter-reset: tab-count;
-    }
-  
-    ::ng-deep .mat-tab-label {
-      counter-increment: tab-count;
-    }
-  }
-  
-  ::ng-deep .mat-tab-labels {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  
+}
+::ng-deep .mat-tab-labels {
+  justify-content: center !important;
+}
+
+::ng-deep .mat-tab-label {
+  color: #ED4D1A;
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active {
+  color: #ED4D1A;
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background:  #ED4D1A;
+}
+
+::ng-deep .mat-tab-label {
+  color: #ED4D1A !important; /* default color for all tabs */
+  transition: color 0.3s ease;
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active {
+  color: #ED4D1A !important; /* active tab label color */
+  font-weight: 600; /* optional: emphasize active tab */
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active {
+  background-color: #ffe9e0;
+  border-radius: 6px;
+  color: #ED4D1A !important;
+}
+
+::ng-deep .mat-tab-label {
+  color: #ED4D1A !important;
+  opacity: 1 !important;  /* prevent it from looking dim */
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+::ng-deep .mat-tab-label:hover {
+  background-color: #f9f9f9;
+  opacity: 1 !important;  /* keep it crisp on hover */
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active {
+  background-color: #ffe9e0;
+  color: #ED4D1A !important;
+  font-weight: 600;
+  opacity: 1 !important;  /* keep active tab fully visible */
+}
