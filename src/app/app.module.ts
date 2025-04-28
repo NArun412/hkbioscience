@@ -43,6 +43,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
 import { DiscoverProductsComponent } from './discover-products/discover-products.component';
+import { TabbedComponent } from './tabbed/tabbed.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -71,8 +73,10 @@ export function tokenGetter() {
     StepperComponent,
     BannerComponent,
     DiscoverProductsComponent
+    TabbedComponent
   ],
   imports: [
+    MatTabsModule,
     MatStepperModule,
     MatButtonModule,
     MatFormFieldModule,

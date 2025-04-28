@@ -111,7 +111,6 @@
 
 /* Stepper content container */
 ::ng-deep .mat-horizontal-content-container {
-  /* padding: 50px !important; */
   overflow: visible !important;
   background-color: #fff !important;
   transition: all 0.3s ease;
@@ -182,4 +181,134 @@
 ::ng-deep .mat-horizontal-content-container {
   padding: 0 120px 24px !important;
   overflow: hidden;
+}
+/* Card and form-related styles */
+@media (max-width: 768px) {
+  /* Adjust card layout for smaller screens */
+  .custom-card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .custom-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Form input styling */
+  .form-select, .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .row.mb-4 {
+    margin-bottom: 15px;
+  }
+
+  .row.g-4 {
+    gap: 10px;
+  }
+
+  .row.mt-5 {
+    margin-top: 20px;
+  }
+
+  .submit-btn {
+    width: 100%;  /* Ensure button is full width */
+  }
+
+  .mat-step-header {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Adjust the stepper content and padding */
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    padding: 20px 30px;
+  }
+
+  ::ng-deep .mat-horizontal-stepper-header {
+    padding: 0 12px;
+  }
+
+  ::ng-deep .mat-horizontal-content-container {
+    padding: 0 20px 24px;
+  }
+
+  /* Stepper icon adjustments */
+  ::ng-deep .mat-step-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #ED4D1A;
+    border: 2px solid #ED4D1A;
+  }
+
+  /* Step icon adjustments when selected */
+  ::ng-deep .mat-step-header.mat-selected .mat-step-icon,
+  ::ng-deep .mat-step-header.mat-active .mat-step-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  /* Adjust step header padding for small screens */
+  ::ng-deep .mat-step-header {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+}
+
+/* Adjustments for tablet and small laptop screens */
+@media (max-width: 1024px) {
+  .custom-card {
+    width: 100%;
+  }
+
+  /* Step header padding for larger mobile/tablets */
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    padding: 30px 40px;
+  }
+
+  ::ng-deep .mat-horizontal-stepper-header {
+    padding: 0 20px;
+  }
+
+  ::ng-deep .mat-horizontal-content-container {
+    padding: 0 50px 24px;
+  }
+
+  /* Adjust form controls for tablets */
+  .form-select, .form-control {
+    font-size: 1rem;
+  }
+}
+
+/* Base styling for larger screens */
+@media (min-width: 1025px) {
+  .custom-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mat-horizontal-stepper-header-container {
+    padding: 40px 100px;
+  }
+
+  .mat-horizontal-stepper-header {
+    padding: 0 24px;
+  }
+
+  .mat-step-header {
+    min-width: 180px;
+    padding: 12px 20px;
+  }
+
+  .mat-step-icon {
+    width: 36px;
+    height: 36px;
+  }
 }

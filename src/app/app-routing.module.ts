@@ -19,6 +19,7 @@ import { CreateAccountFormComponent } from './create-account-form/create-account
 import { BannerComponent } from './banner/banner.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { DiscoverProductsComponent } from './discover-products/discover-products.component';
+import { TabbedComponent } from './tabbed/tabbed.component';
 const routes: Routes = [
   {
     path: '',
@@ -107,6 +108,11 @@ const routes: Routes = [
     path: 'Stepper',
     component: StepperComponent,
     data: { pageName: 'Stepper' }
+  },
+  {
+    path: 'Tabbed',
+    component: TabbedComponent,
+    data: { pageName: 'Tabbed' }
   },
   {
     path: 'Banner',
