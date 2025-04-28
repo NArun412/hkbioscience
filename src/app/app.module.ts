@@ -42,6 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
+import { DiscoverProductsComponent } from './discover-products/discover-products.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -68,7 +69,8 @@ export function tokenGetter() {
     ThankYouComponent,
     CreateAccountFormComponent,
     StepperComponent,
-    BannerComponent
+    BannerComponent,
+    DiscoverProductsComponent
   ],
   imports: [
     MatStepperModule,
