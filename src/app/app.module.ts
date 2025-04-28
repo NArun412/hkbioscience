@@ -42,6 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
+import { DiscoverProductsComponent } from './discover-products/discover-products.component';
 import { TabbedComponent } from './tabbed/tabbed.component';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -71,6 +72,7 @@ export function tokenGetter() {
     CreateAccountFormComponent,
     StepperComponent,
     BannerComponent,
+    DiscoverProductsComponent
     TabbedComponent
   ],
   imports: [

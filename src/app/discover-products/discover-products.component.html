@@ -1,0 +1,17 @@
+<div class="cards-container">
+    <div
+      class="card"
+      *ngFor="let product of products; let i = index"
+      [ngClass]="{ reverse: i % 2 === 1 }"
+    >
+      <div class="image-wrapper">
+        <img [src]="product.image" [alt]="product.title" />
+      </div>
+      <div class="text-wrapper">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <button (click)="onLearnMore(product.title)">Learn more →</button>
+      </div>
+    </div>
+  </div>
+  

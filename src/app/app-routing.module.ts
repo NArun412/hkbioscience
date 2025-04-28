@@ -18,6 +18,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 import { BannerComponent } from './banner/banner.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { DiscoverProductsComponent } from './discover-products/discover-products.component';
 import { TabbedComponent } from './tabbed/tabbed.component';
 const routes: Routes = [
   {
@@ -117,6 +118,11 @@ const routes: Routes = [
     path: 'Banner',
     component: BannerComponent,
     data: { pageName: 'Banner' }
+  },
+  {
+    path: 'DiscoverProduct',
+    component: DiscoverProductsComponent,
+    data: { pageName: 'Discover Product' }
   },
 ];
 
