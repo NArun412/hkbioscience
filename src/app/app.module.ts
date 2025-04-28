@@ -72,7 +72,7 @@ export function tokenGetter() {
     CreateAccountFormComponent,
     StepperComponent,
     BannerComponent,
-    DiscoverProductsComponent
+    DiscoverProductsComponent,
     TabbedComponent
   ],
   imports: [
